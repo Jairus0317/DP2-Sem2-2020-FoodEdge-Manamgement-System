@@ -1,0 +1,43 @@
+DROP TABLE IF EXISTS menu;
+
+CREATE TABLE menu(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(50) NOT NULL,
+	Items VARCHAR(1020) NOT NULL, 
+    	Price DOUBLE UNSIGNED NOT NULL,
+	Quantity INT UNSIGNED DEFAULT 1,
+	Image VARCHAR(50),
+	Category VARCHAR(50) NOT NULL
+);
+
+INSERT INTO menu (Name, Items, Price, Image, Category)
+VALUES 
+('Menu A', 'Nasi Briyani, Spaghetti Aglio Olio, Ayam Kapitan, Ikan Tenggiri Goreng, Thai Garlic Lime Seafood, Lamb Stew and Mushroom with Rosemary Garnishing, Sausage and Potato Wedges, Lo Hon Chai, Kerabu Timun dan Nenas, Fruits and Vegetable Coleslaw, Cendol Ais, Guava Cordial', 38.00, '10001.jpg', 'Buffet'),
+
+('Menu B', 'Pineapple Fried Rice, Kueh Teow Goreng, Ayam Goreng Berempah, Paprik Seafood, Stir Fry Cauliflower and Celery, Nyonya Achar, Mango Pudding, Orange Cordial', 22.00, '10002.jpg', 'Buffet'),
+
+('Menu C', 'Chinese Fried Rice, Braised Noodles, Ayam Penyet Chop, Seafood with Chilli Crab Sauce and Mantao, Stir Fry Vegetables with Straw Mushroom, Seafood Omelette, Dalcha Sayur, Garden Salad with Dressing, Mixed Fresh Fruits, Kiwi Cordial', 27.00, '10003.jpg', 'Buffet'),
+
+('Menu A', 'Cold Dish Combination, Hot and Sour Seafood Soup, Pepper Salt Pork Chops, Cantonese Fried Chicken, Sauteed Mixed Seafood, Blanched Chinese Broccoli in Oyster Sauce, Tomato Sauce Shrimp, Eight Precious Duck, Soybean Paste Sea Bass, Yangzhou Fried Rice, Sweet Tapioca and Red Bean Soup', 88.00, '20001.jpg', 'Chinese Banquet'),
+
+('Menu A', 'Chicken Rice, Asam Laksa, Yong Tofu, BBQ Corner, Satay, Chicken Wing, Aluminium Foiled Asam Seafood, German Sausage, Fried Oyster Omelette, Rojak Buah, Ice Kacang, Sweet Corn in Cup, Air Soya', 48.00, '30001.jpg', 'Stall');
+
+
+CREATE TABLE food_stock(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(50) NOT NULL,
+	Items VARCHAR(1020) NOT NULL, 
+    	Price DOUBLE UNSIGNED NOT NULL,
+	Quantity INT UNSIGNED DEFAULT 1,
+	Image VARCHAR(50),
+	Category VARCHAR(50) NOT NULL
+);
+
+
+Cold Dish Combination (Hors d’oeuvres):
+a. Sliced Roast Pork (Cha Shu)
+b. Drunken Chicken
+c. Jelly Fish Salad
+d. Braised Beef Tendons
+
+Hot and Sour Seafood Soup, Pepper Salt Pork Chops, Cantonese Fried Chicken, Sauteed Mixed Seafood, Blanched Chinese Broccoli in Oyster Sauce, Tomato Sauce Shrimp, Eight Precious Duck, Soybean Paste Sea Bass, Yangzhou Fried Rice, Sweet Tapioca and Red Bean Soup
