@@ -1,0 +1,67 @@
+<style>
+		.my-row{
+            border:1px solid black;
+		}
+
+		.my-col{
+            border:2px dotted red;
+
+		}
+
+		.FeatureBanner{
+			color:white;
+			height:300px;
+			background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("../images/ServicePageBanner.jpg");
+			background-size:cover;
+			background-repeat:no-repeat;
+			display: flex;
+    		align-items: center;
+        }
+        
+        .ServicesCard{  
+            margin: 40px 20px 0 20px;
+        }
+
+        .ServicesCard img{
+            width:100%;
+			object-fit:cover;
+			height:300px;
+			overflow:hidden;
+        }
+
+		.card{
+			width: 18rem;
+			margin:20px;
+			text-align:center;
+		}
+
+		.card > img{
+			height:270px;
+			object-fit:cover;
+			overflow:hidden;
+		}
+
+		.modalMenu{
+			height:400px;
+            overflow:hidden;
+            
+		}
+
+		.modalMenu > img{
+            width:100%;
+            height:400px;
+            object-fit:cover;
+		}
+
+		.menuPageNavi{
+			list-style:none;
+			display:flex;
+			margin:50px 0;
+        }
+        
+		.menuPageNavi li:not(:last-child):after{
+			content: '/';
+			padding:0 10px;
+		}
+		
+</style>

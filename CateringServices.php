@@ -5,37 +5,7 @@
 	<meta http-equiv="Cache-control" content="no-cache">
 	<link rel="stylesheet" href="style/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<style>
 
-		.my-container{
-		}
-		.my-row{
-			border:1px dotted black;
-		}
-
-		.my-col{
-			margin: 40px 20px 0 20px;
-			border:1px dotted black;
-
-		}
-
-		.my-col img{
-			object-fit:cover;
-			overflow:hidden;
-		}
-
-		.FeatureBanner{
-			color:white;
-			height:300px;
-			background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("images/ServicePageBanner.jpg");
-			background-size:cover;
-			background-repeat:no-repeat;
-			display: flex;
-    		align-items: center;
-		}
-		
-		
-	</style>
 </head>
 
 <body>
@@ -48,32 +18,39 @@
 
 
 		<div class = "row justify-content-center my-row">
-			<div class="col-xl-3 col-lg-5 col-md-6 my-col">
-				<a href="">
+			<div class="col-xl-3 col-lg-5 col-md-6 my-col ServicesCard">
+				<a href="BuffetMenu.php">
 					<!--image from: https://static.asiawebdirect.com/m/kl/portals/kuala-lumpur-ws/homepage/putrajaya/putrajaya-dining/pagePropertiesImage/putrajaya-dining.jpg.jpg-->
-					<img width="100%" height="300px"  src = "images/Service_BuffetCatering.jpg">
+					<img class="img-fluid" src = "images/Service_BuffetCatering.jpg">
 				</a>
+				<p>Buffet Catering</p>
 			</div>
 	
-			<div class="col-xl-3 col-lg-5 col-md-6 my-col">
+			<div class="col-xl-3 col-lg-5 col-md-6 my-col ServicesCard">
 				<a href="">
 					<!--image from: https://www.thechairmansbao.com/wp-content/uploads/2017/11/Chinese-Wedding-Banquet-Spread.jpg-->
-					<img width="100%" height="300px" src = "images/Service2_ChineseBanquet.jpg">
+					<img class="img-fluid" src = "images/Service2_ChineseBanquet.jpg">
 				</a>
+				<p>Chinese Banquet</p>
 			</div>
 		</div>
 
 		
 		<div class = "row justify-content-center my-row">
-			<div class="col-xl-3 col-lg-5 col-md-6 my-col">
+			<div class="col-xl-3 col-lg-5 col-md-6 my-col ServicesCard">
 				<a href="">
 					<!--image from: https://www.bigonioncaterer.com.my/wp-content/uploads/2020/01/Hawker-Stall-2-1024x683-1.jpg-->
-					<img width="100%" height="300px" src = "images/Service3_HawkerStallStyle.jpg">
+					<img class="img-fluid" src = "images/Service3_HawkerStallStyle.jpg">
 				</a>
+				<p>Hawker Stall Style</p>
 			</div>
 		</div>
 
 	</div>
+
+
+
+	
 	
 </body>
 
