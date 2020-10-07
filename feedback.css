@@ -1,0 +1,72 @@
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("BG2.jpg");
+  /* Half height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo{
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+h1 {
+  letter-spacing: 5px;
+}
+
+#linee {
+  border-top: 2px solid rgb(51, 51, 51);
+  width: 150px;
+}
+
+.card {
+  background-color: rgba(32, 32, 32, 0.452);
+}
+
+/* 5 star rating start */
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.rating>input {
+  display: none
+}
+
+.rating>label {
+  position: relative;
+  width: 1em;
+  font-size: 40px;
+  color: #FFD600;
+  cursor: pointer
+}
+
+.rating>label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+  opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+  opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+  opacity: 0.4
+}
+/* 5 star rating end */
