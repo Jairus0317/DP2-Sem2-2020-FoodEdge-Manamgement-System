@@ -1,0 +1,62 @@
+body{
+    padding: 100px;
+}
+
+#button{
+    text-align: end;
+    margin-top: 30px;
+    margin-right: 15px;
+}
+
+#paymentTitle{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #FE9711;
+}
+
+p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+hr {
+    margin-top: 1;
+    margin-bottom: 1;
+    border: 5;
+    border-top: 1px solid rgb(0, 0, 0);
+}
+
+.type{
+    color: #FE9711;
+    font-size: x-large;
+    font-style: italic;
+    font-style: oblique;
+}
+
+input[type="radio"]{
+    margin-right: 10px;
+}
+
+#payment{
+    width: 60%;
+    padding: 10;
+    margin: 10;
+    background-color: black;
+}
+
+aside{
+    width: 40%;
+    background-color: orange;
+    padding: 10;
+    margin: 10;
+}
+
+button[type="submit"], button[type="reset"]{
+    margin: 5px;
+    float: left;
+}
+
+.cardType{
+    width: 50px;
+    height: 35px;
+    padding: 5px;
+}
+
