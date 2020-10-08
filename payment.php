@@ -20,7 +20,7 @@ session_id('checkout');
     <h1 id="paymentTitle">Payment</h1>
     <p>Please fill out the form to proceed with the payment</p>
     <div class="col-12 col-md-8 order-2 order-md-1" id="payment">
-        <form method="post" id="paymentForm" method="post" action="payment.php">
+        <form method="post" id="paymentForm" action="payment.php">
             <p class="type">Personal information</p>
             <?php echo display_error();?>
             <div class="form-row container col-lg-10">
@@ -30,7 +30,7 @@ session_id('checkout');
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">Email</label>
-                    <input type="email" name="email" class="form-control" id="inputEmail" value="<?php echo $email; ?>">
+                    <input type="text" name="email" class="form-control" id="inputEmail" value="<?php echo $email; ?>">
                 </div>
                 <div class="form-group">
                     <label for="inputPhoneNumber">Phone Number</label>
@@ -42,7 +42,7 @@ session_id('checkout');
                 <div class="form-row ">
                     <div class="form-group ">
                         <label for="dateBooking"> Date of Event:</label>
-                        ` <input type="date" name="eventDate" id="dateBooking" class="form-control" required="true">
+                        ` <input type="date" name="eventDate" id="dateBooking" class="form-control">
                     </div>
                     <div class=" form-group ">
                         <div class="md-form md-outline">
@@ -52,7 +52,7 @@ session_id('checkout');
                     </div>
                     <div class="form-group ">
                         <label for="quantity">No of Pax</label>
-                        <input type="number" name="paxNo" id="quantity" class="form-control" min="1" max="1000" required="true">
+                        <input type="number" name="paxNo" id="quantity" class="form-control" min="1" max="1000">
                     </div>
                 </div>
                 <div class="form-group">
@@ -170,6 +170,7 @@ session_id('checkout');
                 <td>   </td>
                 <td>  <?php 
                 if(!empty($_POST)) {
+                    echo $_POST['paymentType'];
                     echo $_POST['paxNo'];
                 }
                  ?> </td>

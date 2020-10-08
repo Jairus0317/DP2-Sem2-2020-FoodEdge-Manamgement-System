@@ -114,7 +114,7 @@ if (isset($_GET['checkout'])) {
 }
 
 //validate the details in the payment form
-function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTime, $paxNo, $address1, $city, $state, $zip)
+function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTime, $paxNo, $address1, $city, $state, $zip, $paymentType)
 {
     global $errors;
     if (empty($userName)) {
@@ -131,15 +131,6 @@ function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTim
     }
     if (empty($eventDate)) {
         array_push($errors, "Please enter appropriate date!");
-    }
-    if (!empty($eventDate)) {
-        ($eventDate = explode('/', $eventDate));
-        $month = $eventDate[0];
-        $day = $eventDate[1];
-        $year = $eventDate[2];
-        if (var_dump(checkdate($month, $day, $year)) == false) {
-            array_push($errors, "Please enter appropriate date!");
-        }
     }
     if (empty($eventTime)) {
         array_push($errors, "Please enter appropriate time!");
@@ -166,25 +157,25 @@ function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTim
 
 if (isset($_POST['proceed'])) {
     $username = ($_POST['username']);
-    $email = e($_POST['email']);
-    $phoneNumber = e($_POST['phoneNumber']);
-    $eventDate = e($_POST['eventDate']);
-    $eventTime = e($_POST['eventTime']);
-    $paxNo = e($_POST['paxNo']);
-    $address1 = e($_POST['address1']);
-    $address2 = e($_POST['address2']);
-    $city = e($_POST['city']);
-    $state = e($_POST['state']);
-    $zip = e($_POST['zip']);
-    $cardName = e($_POST['cardname']);
-    $cardNumber = e($_POST['cardnumber']);
-    $expMonth = e($_POST['expmonth']);
-    $expYear = e($_POST['expyear']);
-    $cvc = e($_POST['cvc']);
-    $paymentType = e($_POST['paymentType']);
+    $email = ($_POST['email']);
+    $phoneNumber = ($_POST['phoneNumber']);
+    $eventDate = ($_POST['eventDate']);
+    $eventTime = ($_POST['eventTime']);
+    $paxNo = ($_POST['paxNo']);
+    $address1 = ($_POST['address1']);
+    $address2 = ($_POST['address2']);
+    $city = ($_POST['city']);
+    $state = ($_POST['state']);
+    $zip = ($_POST['zip']);
+    $cardName = ($_POST['cardname']);
+    $cardNumber = ($_POST['cardnumber']);
+    $expMonth = ($_POST['expmonth']);
+    $expYear = ($_POST['expyear']);
+    $cvc = ($_POST['cvc']);
+    $paymentType = ($_POST['paymentType']);
     $address = $address1 . $address2;
 
-    validatecheckout($username, $email, $phoneNumber, $eventDate, $eventTime, $paxNo, $address, $city, $state, $zip);
+    validatecheckout($username, $email, $phoneNumber, $eventDate, $eventTime, $paxNo, $address, $city, $state, $zip, $paymentType);
 
     if ($paymentType == "card") {
         validatecard($cardname, $cardnumber, $expmonth, $expyear, $cvc);
