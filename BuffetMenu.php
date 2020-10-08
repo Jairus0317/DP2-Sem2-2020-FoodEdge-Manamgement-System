@@ -1,5 +1,64 @@
 <?php
-include "Config.php";
+	include "Config.php";
+
+	session_start();
+
+	if(isset($_POST["AddToCart"]))
+	{
+
+		if(isset($_SESSION["ShoppingCart"]))
+		{
+			$ItemArrayID = array_column($_SESSION["ShoppingCart"], "ItemID");
+
+			if(!in_array($_GET["id"], $ItemArrayID))
+			{
+				$Count = count($_SESSION["ShoppingCart"]);
+				$ItemArray	= array(
+					'ItemID' => $_GET["id"],
+					'ItemName' => $_POST["HiddenName"],
+					'ItemPrice' => $_POST["HiddenPrice"],
+					'ItemQuantity' => $_POST["Quantity"]
+	
+				);
+				$_SESSION["ShoppingCart"][$Count] = $ItemArray;
+			}
+
+			else
+			{
+				echo '<script>alert("Item Already Added")</script>';
+				//echo '<script>window.location="BuffetMenu.php"</script>';
+
+			}
+		}
+
+		else
+		{
+			$ItemArray	= array(
+				'ItemID' => $_GET["id"],
+				'ItemName' => $_GET["HiddenName"],
+				'ItemPrice' => $_GET["HiddenPrice"],
+				'ItemQuantity' => $_GET["Quantity"]
+			);
+			$_SESSION["ShoppingCart"][0] = $ItemArray;
+		}
+	}
+
+	if(isset($_GET["action"]))  
+	{  
+		 if($_GET["action"] == "delete")  
+		 {  
+			  foreach($_SESSION["ShoppingCart"] as $keys => $values)  
+			  {  
+				   if($values["ItemID"] == $_GET["id"])  
+				   {  
+						unset($_SESSION["ShoppingCart"][$keys]);  
+						echo '<script>alert("Item Removed")</script>';  
+						//echo '<script>window.location="BuffetMenucopy.php"</script>';  
+				   }  
+			  }  
+		 }  
+	}  
+
 ?>
 
 
@@ -85,7 +144,12 @@ include "Config.php";
 
 												<!-- Modal footer -->
 												<div class="modal-footer">
-													<button type="button" class="btn btn-danger" data-dismiss="modal">Add To Cart</button>
+															<form method="post" action="BuffetMenu.php?action=add&id=<?php echo $row["ID"];?>">
+																<input type="hidden" name="HiddenName" value="<?php echo $row["Name"]; ?>"> 
+																<input type="hidden" name="HiddenPrice" value="<?php echo $row["Price"]; ?>"> 
+																<input type="text" name="Quantity" class="form-control" value="1"> 
+																<input type="submit" name="AddToCart" class="btn btn-success" value="Add to Cart">
+															</form>
 												</div>
 
 											</div>
@@ -102,8 +166,14 @@ include "Config.php";
 				}
 			?>
 
+
 		</div>
 	</div>
+
+	
+	<?php
+			include "ShoppingCart.php";
+	?>
 	
 </body>
 

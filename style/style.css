@@ -64,4 +64,21 @@
 			padding:0 10px;
 		}
 		
+		.ShoppingCartIcon input{
+			position:fixed;
+			bottom:3%;
+			left:3%;	
+			z-index:999;
+		}
+
+		.ShoppingCartIcon span{
+			font-size:10rem;
+			background-color:red;
+			color:white;
+			position:fixed;
+			bottom:7%;
+			left:5.5%;	
+			z-index:999;
+		}
+		
 </style>
