@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #252525;
+  position: relative;
+  padding: 50px;
+    overflow: hidden;
+  text-align: center;
+}
+
+
+
+.header img{
+	padding-left:10px;
+	width:35px;
+}
+
+.header {
+	color:white;
+  float: center;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Style the top navigation bar */
+
+.topnav img{
+	width:60px;
+}
+	
+.topnav {
+	padding:20px;
+	text-align:center;
+	position:relative;
+  overflow: hidden;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: center;
+  color: #ff9900;
+  text-align: center;
+  padding: 50px 50px;
+  text-decoration: none;
+}
+  
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.right{
+	float:right;
+}
+/* banner */
+#banner img{
+	height: 60%;
+	width:100%;
+}
+
+/* content class */
+.content{
+	text-align:center;
+}
+
+.content h1{
+	color:#ff9900;
+}
+/* table*/
+.table{
+	border: 10px solid #ff9900;
+	position: relative;
+	padding: 10%;
+	overflow: hidden;
+	text-align: center;
+	overflow-x:auto;
+	border-spacing: 2%;
+	border-collapse:collapse;
+	width:100%;
+}
+
+}
+.wedding th, td{
+	text-align: left;
+	width:5%;
+	height: 10%;
+	padding: 8px;
+}
+/* footer */
+.footer{
+	text-align:center;
+	color:#ff9900;
+	background-color:#252525;
+  position: relative;
+  padding: 20px;
+    overflow: hidden;
+}
+/* back to top button */
+
+.arrow{
+	width:4.5%;
+	text-align:right;
+	position:fixed;
+	bottom:0;
+	right:0;
+	clear:both;
+}
