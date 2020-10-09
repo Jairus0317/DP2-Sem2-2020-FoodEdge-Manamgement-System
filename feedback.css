@@ -1,6 +1,7 @@
 body, html {
   height: 100%;
 }
+
 .bg {
   /* The image used */
   background-image: url("BG2.jpg");
@@ -10,26 +11,21 @@ body, html {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
-.logo{
-  margin: 0;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-}
 
 h1 {
   letter-spacing: 5px;
 }
 
 #linee {
-  border-top: 2px solid rgb(51, 51, 51);
+  border-top: 2px solid rgb(0, 0, 0);
   width: 150px;
 }
 
 .card {
-  background-color: rgba(32, 32, 32, 0.452);
+  background-color: rgba(37, 37, 37, 0.644);
 }
 
 /* 5 star rating start */
@@ -47,7 +43,7 @@ h1 {
   position: relative;
   width: 1em;
   font-size: 40px;
-  color: #FFD600;
+  color: #ffd500;
   cursor: pointer
 }
 
@@ -70,3 +66,9 @@ h1 {
   opacity: 0.4
 }
 /* 5 star rating end */
+
+
+/* scrolling start */
+
+
+
