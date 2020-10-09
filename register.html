@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Register</title>
+</head>
+<style>
+body{
+	margin:0;
+
+}
+article{
+		background-color:#ff9900;
+		
+}
+div.form
+{
+	width:80%;
+	background:white;
+	padding:1%;
+	margin:0 auto;
+    display: block;
+    text-align: center;
+	background-color:white;
+	
+	
+}
+form
+{
+    display: inline-block;
+    margin: 0 auto;
+
+}
+label {
+    display: block;
+	margin-top: 1rem;
+    font: .9rem 'Fira Sans', sans-serif;
+}
+input[type='submit'],input[type="reset"]{
+	display:block;
+    margin-top: 2rem;
+	margin:3% 3%;
+	font-size:1.2vw;
+	color:white;
+	border:none;
+	background:orange;
+	padding:4%;
+	border-radius:20vw;
+	cursor:pointer;
+}
+
+a{
+	color:#ff9900;
+}
+#address{
+	vertical-align: text-top;
+}
+</style>
+
+<script>
+function validateRegister() {
+  var x = document.forms["registerform"]["username"].value;
+  if (x == "" || x == null) {
+    alert("Please fill in your username ");
+    return false;
+  }
+
+</script>
+<body>
+	<header>
+		<div class = "container-fluid my-container">
+
+		<div class="row my-row FeatureBanner justify-content-center" >
+			<h1>Register</h1>
+		</div>
+	</header>
+	<article>
+		<div class="form">
+			<form id="regForm" name="registerform" onsubmit="return validateRegister()"  action="login.html" method="post" enctype="text/plain" class="registerform">
+			<div class="form">
+				<fieldset>
+					<table>
+						<tr>
+							<td><label for="username">Username</label></td>
+							<td><input type="text" id="username" name="username" size="16"></td>
+						</tr>
+						<tr>
+							<td><label for="password">Password</label></td>
+							<td><input type="password" id="password" maxlength="16" name="password" size="16"></td>
+							<td><label for="cfmpassword">Confirm Password</label></td>
+							<td><input type="password" id="cfmpassword" maxlength="16" name="cfmpassword" size="16"></td>
+						</tr>
+						<tr>
+							<td><label for="fmail">First name</label></td>
+							<td><input type="text" id="fname"  name="fname" size="16"></td>
+							<td><label for="lame">Last name</label></td>
+							<td><input type="text" id="lname"  name="lname" size="16"></td>
+						</tr>
+						<tr>
+							<td><label for="email">Email address</label></td>
+							<td><input type="text" id="email" size="16" name="email"></td>
+							<td><label for="phone">Phone</label></td>
+							<td><input type="text" id="phone" maxlength="12" name="phone" size="16"></td>
+						</tr>
+						<tr id="address">
+							<td class="address"><label for="address">Address</label></td>
+							<td colspan="5"><textarea name="address" id="address" rows="8" cols="65" placeholder="Please enter your address"></textarea></td>
+						</tr>
+						
+						<tr>
+						<td><input type="submit" value="Register"></td>
+						</tr>
+					</table>
+				</fieldset>
+
+
+				
+				
+				
+			</div>
+		</form>
+		</div>
+	</article>
+	<footer>
+	</footer>
+
+
+
+
+
+
+</body>
+</html>
+
+
