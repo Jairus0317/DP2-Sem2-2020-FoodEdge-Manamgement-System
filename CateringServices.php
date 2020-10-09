@@ -13,7 +13,7 @@
 	<div class = "container-fluid my-container">
 
 		<div class="row my-row FeatureBanner justify-content-center" >
-				<h1>Services</h1>
+				<h1>Catering Services</h1>
 		</div>
 
 

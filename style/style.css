@@ -1,12 +1,20 @@
 <style>
 		.my-row{
-            border:1px solid black;
 		}
 
 		.my-col{
-            border:2px dotted red;
 
 		}
+
+		.btn,
+		.btn:hover,
+		.btn:active,
+		.btn:visited,
+		.btn:focus {
+			background-color: #ff9900;
+			border-color: #ff9900;
+		}
+
 
 		.FeatureBanner{
 			color:white;
@@ -57,7 +65,31 @@
 			list-style:none;
 			display:flex;
 			margin:50px 0;
-        }
+		}
+		
+		.menuPageNavi a
+		{
+			text-decoration:none;
+			color:#252525;
+		}
+
+		.menuPageNavi a:hover
+		{
+			color:#ff9900;
+			transition:0.2s;
+		}
+
+		.menuPageNavi .ActiveLink
+		{
+			color:#ff9900;
+		}
+
+		.menuPageNavi a:active
+		{
+			color:red;
+			transition:0.2s;
+		}
+
         
 		.menuPageNavi li:not(:last-child):after{
 			content: '/';
@@ -72,13 +104,15 @@
 		}
 
 		.ShoppingCartIcon span{
-			font-size:10rem;
-			background-color:red;
-			color:white;
+			background-color: #ff9900;
+			border-radius:0.2vw;
+			font-size:1vw;
 			position:fixed;
-			bottom:7%;
-			left:5.5%;	
+			bottom:9.7%;
+			left:6.5%;	
 			z-index:999;
 		}
-		
+
+
+
 </style>

@@ -68,8 +68,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="Cache-control" content="no-cache">
-	<link rel="stylesheet" href="style/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -82,6 +82,19 @@
 		<div class="row my-row FeatureBanner justify-content-center" >
 			<h1>Catering Menu</h1>
 		</div>
+
+		<script>
+			$(document).ready(function() 
+			{
+				$("[href]").each(function() 
+				{
+					if (this.href == window.location.href) 
+					{
+						$(this).addClass("ActiveLink");
+					}
+				});
+			});
+		</script>
 
 		<div class="row my-row justify-content-center" >
 			<ul class="menuPageNavi">
@@ -143,11 +156,11 @@
 												</div>
 
 												<!-- Modal footer -->
-												<div class="modal-footer">
+												<div class="modal-footer AddToCart">
 															<form method="post" action="BuffetMenu.php?action=add&id=<?php echo $row["ID"];?>">
 																<input type="hidden" name="HiddenName" value="<?php echo $row["Name"]; ?>"> 
 																<input type="hidden" name="HiddenPrice" value="<?php echo $row["Price"]; ?>"> 
-																<input type="text" name="Quantity" class="form-control" value="1"> 
+																<p>Number of Pax:<input type="text" name="Quantity" class="form-control" value="1"></p>
 																<input type="submit" name="AddToCart" class="btn btn-success" value="Add to Cart">
 															</form>
 												</div>

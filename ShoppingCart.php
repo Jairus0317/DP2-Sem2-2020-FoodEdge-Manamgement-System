@@ -1,8 +1,20 @@
 
 
 <div class="ShoppingCartIcon">
-	<input type="image" src="images/ShoppingCart.png" width="3%" data-toggle="modal" data-target="#ShoppingCartModal"></input>
-	<span class="badge badge-light"><?php echo count($_SESSION["ShoppingCart"]) ?></span>
+	<input type="image" src="images/ShoppingCart.png" width="4%" data-toggle="modal" data-target="#ShoppingCartModal"></input>
+	<span class="badge badge-danger">
+		<?php 
+		if(isset($_SESSION["ShoppingCart"]))
+		{
+			echo count($_SESSION["ShoppingCart"]);
+		}
+
+		else
+		{
+			echo '0';
+		}
+		?>
+	</span>
 </div>
 
 
