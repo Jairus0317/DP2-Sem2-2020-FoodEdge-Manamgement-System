@@ -54,8 +54,8 @@
 									<tr>  
 										<td><?php echo $values["ItemName"]; ?></td>  
 										<td><?php echo $values["ItemQuantity"]; ?></td>  
-										<td>$ <?php echo $values["ItemPrice"]; ?></td>  
-										<td>$ <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></td>  
+										<td>RM <?php echo number_format($values["ItemPrice"], 2); ?></td>  
+										<td>RM <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></td>  
 										<td><a href="BuffetMenu.php?action=delete&id=<?php echo $values["ItemID"]; ?>"><span class="text-danger">Remove</span></a></td>  
 									</tr>  
 
@@ -66,7 +66,7 @@
 
 						<tr>  
 							<td colspan="3" align="right">Total</td>  
-							<td align="right">$ <?php echo number_format($total, 2); ?></td>  
+							<td align="right">RM <?php echo number_format($total, 2); ?></td>  
 							<td></td>  
 						</tr>
 

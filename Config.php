@@ -1,8 +1,9 @@
 <?php
-$mysqli = new mysqli("localhost","root","","epiz_26849119_FoodEdgeDatabase");
+$mysqli = new mysqli("localhost","root","","foodedgedatabase");
 
 // Check connection
 if ($mysqli -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
 }
 ?>
+

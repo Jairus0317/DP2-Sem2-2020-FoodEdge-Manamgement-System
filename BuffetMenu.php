@@ -1,6 +1,8 @@
 <?php
+	//Database configuration
 	include "Config.php";
 
+	//Start session
 	session_start();
 
 	if(isset($_POST["AddToCart"]))
@@ -10,11 +12,11 @@
 		{
 			$ItemArrayID = array_column($_SESSION["ShoppingCart"], "ItemID");
 
-			if(!in_array($_GET["id"], $ItemArrayID))
+			if(!in_array($_POST["ItemID"], $ItemArrayID))
 			{
 				$Count = count($_SESSION["ShoppingCart"]);
 				$ItemArray	= array(
-					'ItemID' => $_GET["id"],
+					'ItemID' => $_POST["ItemID"],
 					'ItemName' => $_POST["HiddenName"],
 					'ItemPrice' => $_POST["HiddenPrice"],
 					'ItemQuantity' => $_POST["Quantity"]
@@ -34,10 +36,10 @@
 		else
 		{
 			$ItemArray	= array(
-				'ItemID' => $_GET["id"],
-				'ItemName' => $_GET["HiddenName"],
-				'ItemPrice' => $_GET["HiddenPrice"],
-				'ItemQuantity' => $_GET["Quantity"]
+				'ItemID' => $_POST["ItemID"],
+				'ItemName' => $_POST["HiddenName"],
+				'ItemPrice' => $_POST["HiddenPrice"],
+				'ItemQuantity' => $_POST["Quantity"]
 			);
 			$_SESSION["ShoppingCart"][0] = $ItemArray;
 		}
@@ -53,7 +55,7 @@
 				   {  
 						unset($_SESSION["ShoppingCart"][$keys]);  
 						echo '<script>alert("Item Removed")</script>';  
-						//echo '<script>window.location="BuffetMenucopy.php"</script>';  
+						echo '<script>window.location="BuffetMenu.php"</script>';  
 				   }  
 			  }  
 		 }  
@@ -68,11 +70,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="Cache-control" content="no-cache">
+	<!--Bootstrap CDN-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!--FontAwesome CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="style/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Buffet Menu</title>
 </head>
 
 <body>
@@ -157,11 +160,41 @@
 
 												<!-- Modal footer -->
 												<div class="modal-footer AddToCart">
-															<form method="post" action="BuffetMenu.php?action=add&id=<?php echo $row["ID"];?>">
-																<input type="hidden" name="HiddenName" value="<?php echo $row["Name"]; ?>"> 
-																<input type="hidden" name="HiddenPrice" value="<?php echo $row["Price"]; ?>"> 
-																<p>Number of Pax:<input type="text" name="Quantity" class="form-control" value="1"></p>
-																<input type="submit" name="AddToCart" class="btn btn-success" value="Add to Cart">
+															<form method="post" action="BuffetMenu.php">
+																<input type="hidden" name="HiddenName" value="<?php echo $row["Category"]; echo " - "; echo $row["Name"]; ?>"> 
+																<input type="hidden" name="HiddenPrice" value="<?php echo $row["Price"]; ?>">
+
+																<div class ="row justify-content-end">
+																	<div class ="col col-md-6 px-0">
+																		<span>Number of pax:</span>
+																		<button type="button" id="ButtonMinus" class="btn bg-light border rounded-circle" data-quantity="minus" data-field="quantity"><i class="fa fa-minus"></i></button>
+																		<input type="number" name="Quantity" class="form-control input-group-field d-inline" value="1">
+																		<button type="button" id="ButtonAdd" class="btn bg-light border rounded-circle" data-quantity="plus" data-field="quantity"><i class="fa fa-plus"></i></button>
+
+																		<script>
+																			let ButtonPlus = document.querySelector('#ButtonAdd');
+																			let ButtonMinus = document.querySelector('#ButtonMinus');
+																			let QuantityInput = document.querySelector('input[name=Quantity]');
+
+																			ButtonPlus.addEventListener('click', () => {
+																				QuantityInput.value = parseInt(QuantityInput.value) + 1;
+																			});
+
+																			
+																			ButtonMinus.addEventListener('click', () => {
+																				QuantityInput.value = parseInt(QuantityInput.value) - 1;
+																			});
+
+
+
+																		</script>
+
+																	</div>
+																	<div class ="col col-md-4 px-0">
+																		<button type="submit" name="AddToCart" class="btn btn-success"> Add To Cart <i class="fa fa-shopping-cart"></i></button>
+																		<input type='hidden' name='ItemID' value='<?php echo $row['ID']?>'>
+																	</div>
+																</div>
 															</form>
 												</div>
 
@@ -169,7 +202,7 @@
 										</div>
 									</div>
 
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<?php echo $row['ID']?>">Detail</button>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<?php echo $row['ID']?>">Get Detail</button>
 									
 								</div>
 							</div>
@@ -187,6 +220,10 @@
 	<?php
 			include "ShoppingCart.php";
 	?>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 </body>
 
