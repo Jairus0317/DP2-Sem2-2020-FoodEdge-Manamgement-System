@@ -1,52 +1,68 @@
-body{
+.paymentTransaction{
     padding: 100px;
+    background-color: #FE9711;
 }
 
-#button{
+#buttonDiv{
     text-align: end;
     margin-top: 30px;
     margin-right: 15px;
 }
 
-#paymentTitle{
+.paymentTitle{
+    text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #FE9711;
 }
 
-p{
+#paymentPageP{
+    text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-hr {
-    margin-top: 1;
-    margin-bottom: 1;
-    border: 5;
-    border-top: 1px solid rgb(0, 0, 0);
 }
 
 .type{
-    color: #FE9711;
-    font-size: x-large;
+    color:#FE9711;
+    font-size: large;
     font-style: italic;
-    font-style: oblique;
+    padding-top: 5%;
 }
 
 input[type="radio"]{
     margin-right: 10px;
 }
 
-#payment{
-    width: 60%;
-    padding: 10;
-    margin: 10;
-    background-color: black;
+.paymentArea{
+    padding-top: 10%;
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
 }
 
-aside{
-    width: 40%;
-    background-color: orange;
-    padding: 10;
-    margin: 10;
+#payment{
+    background-color: white;
+}
+
+#paymentSummary{
+    background-color: #E8E8E8;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 3px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-top: 2.5%;
+
+}
+
+#orderSum{
+    color:black;
+    font-size: large;
+    font-style: italic;
+    padding-top: 5%;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 button[type="submit"], button[type="reset"]{
@@ -58,5 +74,23 @@ button[type="submit"], button[type="reset"]{
     width: 50px;
     height: 35px;
     padding: 5px;
+}
+
+#transctionBody{
+    background-color: #FE9711;
+    background-blend-mode:screen;
+}
+
+#receipt{
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    margin: auto;
+    width: 80%;
+    margin-top: 5%;
+}
+
+h1,h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
