@@ -1,0 +1,25 @@
+create table checkout(
+id int not null primary key auto_increment,
+username varchar(100) not null,
+email varchar(100) not null,
+phoneNumber int(10) not null,
+date varchar(20) not null,
+time varchar(20) not null,
+address varchar(250) not null,
+city varchar(100) not null,
+state varchar (100) not null,
+zip int(5) not null,
+cardname varchar(100),
+cardnumber varchar(50),
+exp varchar(50),
+cvc varchar(50);
+
+create table transaction(
+id int not null primary key auto_increment, 
+name int(100) not null, 
+price double(unsigned) not null,
+Image varchar(50) not null,
+quantity int unsigned default 1 not null,
+category varchar (50) not null,
+checkout_id int(20) not null,
+foreign key (checkout_id) references checkout(id));
