@@ -83,6 +83,7 @@
 
 <!-- Modal footer -->
 			<div class="modal-footer">
+				<a href="Payment.php">Check out</a>
 			</div>
 
 		</div>
