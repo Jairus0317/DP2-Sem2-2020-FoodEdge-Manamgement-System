@@ -3,17 +3,23 @@ body, html {
 }
 
 .bg {
-  /* The image used */
-  background-image: url("BG2.jpg");
-  /* Half height */
   height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-position: top left, center center;
+  background-repeat: repeat, no-repeat;
+  z-index: -1;
+}
+.table{
+  margin-bottom: 0;
 }
 
+#background {
+  background-image: url("BG2.jpg");
+}
 
 h1 {
   letter-spacing: 5px;
