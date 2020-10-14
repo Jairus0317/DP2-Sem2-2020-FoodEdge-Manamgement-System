@@ -74,51 +74,6 @@ h1 {
 /* 5 star rating end */
 
 
-
-/* scrolling start */
-.scrolling1 {
-  height: 350px;	
-  overflow: hidden;
-  position: relative;
- }
- .scrolling1 table {
-  position: absolute;
-  width: 100%;
-  margin: 0;
-  border-color: cornsilk;
-
-  /* Starting position */
-  -moz-transform:translateY(-100%);
-  -webkit-transform:translateY(-100%);	
-  transform:translateY(-100%);
-  /* Apply animation to this element */	
-  -moz-animation: scrolling1 15s linear infinite;
-  -webkit-animation: scrolling1 15s linear infinite;
-  animation: scrolling1 15s linear infinite;
- }
- /* Move it (define the animation) */
- @-moz-keyframes scrolling1 {
-  0%   { -moz-transform: translateY(-100%); }
-  100% { -moz-transform: translateY(100%); }
- }
- @-webkit-keyframes scrolling1 {
-  0%   { -webkit-transform: translateY(-100%); }
-  100% { -webkit-transform: translateY(100%); }
- }
- @keyframes scrolling1 {
-  0%   { 
-  -moz-transform: translateY(-100%); /* Firefox bug fix */
-  -webkit-transform: translateY(-100%); /* Firefox bug fix */
-  transform: translateY(-100%); 		
-  }
-  100% { 
-  -moz-transform: translateY(100%); /* Firefox bug fix */
-  -webkit-transform: translateY(100%); /* Firefox bug fix */
-  transform: translateY(100%); 
-  }
- }
-
-
 #t1{
   color: beige;
 }
