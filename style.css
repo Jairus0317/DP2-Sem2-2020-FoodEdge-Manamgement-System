@@ -33,7 +33,7 @@ input[type="radio"]{
 
 .paymentArea{
     padding-top: 10%;
-    width: 80%;
+    width: 90%;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: auto;
@@ -57,12 +57,14 @@ input[type="radio"]{
 }
 
 #orderSum{
-    color:black;
+    color:#FE9711 ;
     font-size: large;
     font-style: italic;
-    padding-top: 5%;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 button[type="submit"], button[type="reset"]{
@@ -92,5 +94,25 @@ button[type="submit"], button[type="reset"]{
 
 h1,h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#totalPriceSum{
+    font-size: x-large;
+    text-align: center;
+    color: #FE9711;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+#receipt h1, #receipt h4{
+    color: #FE9711;
+}
+
+#receipt h2,#receipt h4{
+    font-size: medium;
+}
+
+#receiptNo, .receiptMenuList{
+    text-align: center;
 }
 

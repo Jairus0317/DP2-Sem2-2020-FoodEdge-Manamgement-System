@@ -1,6 +1,12 @@
 <?php
 include('methods.php');
 session_id('checkout');
+
+$discount = '0';
+
+if (isset($_SESSION['user'])) {
+    $discount = '20';
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +26,17 @@ session_id('checkout');
     <div class="paymentArea">
         <h1 class="paymentTitle">Payment</h1>
         <p id="paymentPageP">Please fill out the form to proceed with the payment</p>
+
+        <!-- Payment Form -->
         <div class="col-12 col-md-8 order-2 order-md-1" id="payment">
             <form method="post" id="paymentForm" action="payment.php">
+                
+            <!-- Display validation error -->
                 <?php echo display_error(); ?>
+
+                <!-- Personal Information Form -->
                 <div class="form-row container col-lg-10">
-                <p class="type">Personal information</p>
+                    <p class="type">Personal information</p>
                     <div class="form-group">
                         <label for="inputUsertName">Username</label>
                         <input type="text" name="username" class="form-control" id="inputUsertName" value="<?php echo $username; ?>">
@@ -38,6 +50,8 @@ session_id('checkout');
                         <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" value="<?php echo $phoneNumber; ?>">
                     </div>
                 </div>
+
+                <!-- Event Details Form -->
                 <div class="container col-lg-10">
                     <p class="type">Event Details</p>
                     <div class="form-row ">
@@ -50,10 +64,6 @@ session_id('checkout');
                                 <label for="servingTime">Serving Time</label>
                                 <input type="time" name="eventTime" id="servingTime" class="form-control" placeholder="Select time">
                             </div>
-                        </div>
-                        <div class="form-group ">
-                            <label for="quantity">No of Pax</label>
-                            <input type="number" name="paxNo" id="quantity" class="form-control" min="1" max="1000">
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,6 +106,8 @@ session_id('checkout');
                         </div>
                     </div>
                 </div>
+
+                <!-- Payment Type Form -->
                 <div class="form-row container col-lg-10">
                     <p class="type">Payment Type</p>
                     <div id="paymentType">
@@ -110,6 +122,8 @@ session_id('checkout');
                     </div>
                 </div>
 
+
+                <!-- Card Information Form -->
                 <div class="form-row container  col-lg-10">
                     <div id="card" desc="cardPayment" style="display: none">
                         <div class="form-group col-md-6">
@@ -145,44 +159,44 @@ session_id('checkout');
             </form>
 
         </div>
+
+        <!-- Display Items from Cart -->
         <div class="col-12 col-md-4 order-1 order-md-2">
             <aside id="paymentSummary">
-                <h3 id="orderSum" >Order Summary</h3>
+                <h3 id="orderSum">Order Summary</h3>
+                <hr />
                 <?php
-                if (isset($_SESSION['cart'])) {
-                    for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                        $results = mysqli_query($db, "select * from menu where id=" . $_SESSION['cart'][$i]['id']);
-                        if (mysqli_num_rows($results) > 0) {
-                            while ($row = mysqli_fetch_array($results)) { ?>
-                                <tr>
-                                    <td><img src="images/<?php echo $row['image'] ?>" width="50px"></td>
-                                    <td class="col-md-9"><em><?php echo $row['name'] ?></em></td>
-                                    <td class="col-md-1" style="text-align: center"><?php echo $_SESSION['cart'][$i]['quantity'] ?></td>
-                                    <td class="col-md-1 text-center">RM<?php echo $row['price'] ?></td>
-                                    <td class="col-md-1 text-center">RM<?php echo $_SESSION['cart'][$i]['quantity'] * $row['price'] ?></td>
-                                </tr>
-                                <?php $totalprice = $totalprice + ($row['price'] * $_SESSION['cart'][$i]['quantity']); ?>
-                <?php }
+                $total = 0;
+
+                foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
+                ?>
+                    <p><strong>Menu : </strong><?php echo $values["ItemName"]; ?></p>
+                    <p><strong>No of Pax: </strong><?php echo $values["ItemQuantity"]; ?></p>
+                    <p><strong>Price per Menu: </strong>RM <?php echo number_format($values["ItemPrice"], 2); ?></p>
+                    <p><strong>Calculated price per Menu: </strong>RM <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></p>
+                    <hr />
+                <?php
+                    $total = $total + ($values["ItemQuantity"] * $values["ItemPrice"]);
+                }
+                ?>
+
+                <!-- Calculate Price either customer is applicable for discount or not -->
+                <?php
+                if ($discount != '0') { ?>
+                    <p><?php echo "Membership Discount : 20% "; ?></p>
+                    <p><?php echo "Price before discount : RM" . $total; ?></p>
+                <?php } ?>
+                <p id="totalPriceSum"><strong> Total : RM
+                        <?php
+                        if ($discount != '0') {
+                            $beforeDiscount = $total;
+                            $afterDiscount = ($discount / 100) * $beforeDiscount;
+                            echo number_format($afterDiscount, 2);
+                        } else {
+                            echo $total;
                         }
-                    }
-                } ?>
-                <tr>
-                    <td> </td>
-                    <td>   </td>
-                    <td> </td>
-                    <td class="text-right">
-                        <h4><strong>Total: </strong></h4>
-                    </td>
-                    <td class="text-center text-danger">
-                        <h4><strong>RM<?php
-                                        if (isset($totalprice)) {
-                                            echo $totalprice;
-                                        } else {
-                                            echo 0;
-                                        }
-                                        ?></strong></h4>
-                    </td>
-                </tr>
+
+                        ?> </strong></p>
             </aside>
         </div>
     </div>

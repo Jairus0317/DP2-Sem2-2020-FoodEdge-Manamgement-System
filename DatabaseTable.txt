@@ -12,14 +12,14 @@ zip int(5) not null,
 cardname varchar(100),
 cardnumber varchar(50),
 exp varchar(50),
-cvc varchar(50);
+cvc varchar(50));
 
 create table transaction(
 id int not null primary key auto_increment, 
+itemId int not null,
 name int(100) not null, 
-price double(unsigned) not null,
-Image varchar(50) not null,
+price double unsigned not null,
 quantity int unsigned default 1 not null,
-category varchar (50) not null,
+totalPrice double unsigned not null,
 checkout_id int(20) not null,
 foreign key (checkout_id) references checkout(id));

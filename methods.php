@@ -2,8 +2,6 @@
 session_start();
 include('Config.php');
 
-//$rid to be implemented to decide the type of users based on login credentials
-
 $errors = array();
 $username = "";
 $email = "";
@@ -27,8 +25,8 @@ $paymentType = "";
 //trim input
 function e($val)
 {
-    global $db;
-    return mysqli_real_escape_string($db, trim($val));
+    global $mysqli;
+    return mysqli_real_escape_string($mysqli, trim($val));
 }
 
 //to display error from database
@@ -106,7 +104,7 @@ function validatecard($cardName, $cardNumber, $expMonth, $expYear, $cvc)
 if (isset($_GET['checkout'])) {
     if (isset($_SESSION['user'])) {
         $rid = $_SESSION['user']['id'];
-        $row = mysqli_fetch_assoc(mysqli_query($db, "select * from account where id='$rid'"));
+        $row = mysqli_fetch_assoc(mysqli_query($mysqli, "select * from account where id='$rid'"));
         $username = $row['username'];
         $email = $row['email'];
         $phoneNumber = $row['phoneNumber'];
@@ -114,7 +112,7 @@ if (isset($_GET['checkout'])) {
 }
 
 //validate the details in the payment form
-function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTime, $paxNo, $address1, $city, $state, $zip, $paymentType)
+function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTime, $address1, $city, $state, $zip, $paymentType)
 {
     global $errors;
     if (empty($userName)) {
@@ -135,9 +133,6 @@ function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTim
     if (empty($eventTime)) {
         array_push($errors, "Please enter appropriate time!");
     }
-    if (empty($paxNo)) {
-        array_push($errors, "Please enter no of pax!");
-    }
     if (empty($address1)) {
         array_push($errors, "Please enter the address of the event");
     }
@@ -155,79 +150,95 @@ function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTim
     }
 }
 
+//checkout session
 if (isset($_POST['proceed'])) {
-    $username = ($_POST['username']);
-    $email = ($_POST['email']);
-    $phoneNumber = ($_POST['phoneNumber']);
-    $eventDate = ($_POST['eventDate']);
-    $eventTime = ($_POST['eventTime']);
-    $paxNo = ($_POST['paxNo']);
-    $address1 = ($_POST['address1']);
-    $address2 = ($_POST['address2']);
-    $city = ($_POST['city']);
-    $state = ($_POST['state']);
-    $zip = ($_POST['zip']);
-    $cardName = ($_POST['cardname']);
-    $cardNumber = ($_POST['cardnumber']);
-    $expMonth = ($_POST['expmonth']);
-    $expYear = ($_POST['expyear']);
-    $cvc = ($_POST['cvc']);
-    $paymentType = ($_POST['paymentType']);
-    $address = $address1 . $address2;
+    $username = e($_POST['username']);
+    $email = e($_POST['email']);
+    $phoneNumber = e($_POST['phoneNumber']);
+    $eventDate = e($_POST['eventDate']);
+    $eventTime = e($_POST['eventTime']);
+    $address1 = e($_POST['address1']);
+    $address2 = e($_POST['address2']);
+    $city = e($_POST['city']);
+    $state = e($_POST['state']);
+    $zip = e($_POST['zip']);
+    $cardName = e($_POST['cardname']);
+    $cardNumber = e($_POST['cardnumber']);
+    $expMonth = e($_POST['expmonth']);
+    $expYear = e($_POST['expyear']);
+    $cvc = e($_POST['cvc']);
+    $paymentType = e($_POST['paymentType']);
+    $address = $address1 . ',' . $address2;
 
-    validatecheckout($username, $email, $phoneNumber, $eventDate, $eventTime, $paxNo, $address, $city, $state, $zip, $paymentType);
+    //validate personal information and event details
+    validatecheckout($username, $email, $phoneNumber, $eventDate, $eventTime, $address, $city, $state, $zip, $paymentType);
 
-    if ($paymentType == "card") {
-        validatecard($cardname, $cardnumber, $expmonth, $expyear, $cvc);
+    // check the payment type = card / cash
+    if (isset($paymentType)) {
+        //payment type = card
+        if ($paymentType == "card") {
+            validatecard($cardName, $cardNumber, $expMonth, $expYear, $cvc); //validation on card details
 
-        if (count($errors) == 0) {
-            $exp = $expmonth . '/' . $expyear;
-            $query = "insert into checkout(username,email,phoneNumber,address1.address2,cardName,cardNumber,exp,cvc) values('$username','$email', '$phoneNumber', '$eventDate','$eventTime','$paxNo' ,'$address',
-         '$city', '$state' , '$zip' ,'$cardName','$cardNumber''$exp','$cvc')";
-            $results = mysqli_query($db, $query);
-            $id = mysqli_insert_id($db);
+            //if there is no error, push data into database
+            if (count($errors) == 0) {
+                $exp = $expMonth . '/' . $expYear;
+                $query = "insert into 'checkout' (username,email,phoneNumber,date, time, address, city, state, zip, cardName,cardNumber,exp,cvc) 
+            values('$username','$email', '$phoneNumber', '$eventDate','$eventTime','$address', $city', '$state', '$zip','$cardName','$cardNumber''$exp','$cvc')";
+                $results = mysqli_query($mysqli, $query);
+                $id = mysqli_insert_id($mysqli); //insert data into checkout table indatabase
 
-            if ($id) {
-                for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                    $mid = $_SESSION['cart'][$i]['id'];
-                    $quantity = $_SESSION['cart'][$i]['quantity'];
-                    mysqli_query($db, "insert into transaction(id,Name',Price,Image, category, checkout_id)
-                values('$mid',$name','$price','$image','$category', '$id')");
+                if ($id) {
+                    $total = 0;
+                    foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
+                        $mid = $values['ItemID'];
+                        $name = $values["ItemName"];
+                        $quantity = $values['ItemQuantity'];
+                        $price = $values['ItemPrice'];
+                        $totalPrice = ($values["ItemQuantity"] * $values["ItemPrice"]);
+                        mysqli_query($mysqli, "insert into transaction(ItemID,name,price, quantity, totalPrice,checkout_id)
+                    values('$mid','$name','$price', '$quantity', '$totalPrice','$id')"); //insert data into transaction table indatabase
 
-                    $row =  mysqli_fetch_assoc(mysqli_query($db, "select * from menu"));
-                    $qty = $row['quantity'];
-                    if ($row['quantity'] != 0) {
-                        $finalqty = $qty - $quantity;
-                        mysqli_query($db, "update menu set quantity='$finalqty' where id='$mid'");
+                        //deduct the food stock in database
+                        $row =  mysqli_fetch_assoc(mysqli_query($db, "select * from food_stock"));
+                        $qty = $row['Quantity'];
+                        if ($row['Quantity'] != 0) {
+                            $finalqty = $qty - $quantity;
+                            mysqli_query($db, "update food_stock set Quantity='$finalqty' where id='$mid'");
+                        }
                     }
+                    header('location: transaction.php');
                 }
-                header('location: transaction.php');
             }
         }
-    }
 
-    if ($paymentType == "cash") {
-        if (count($errors) == 0) {
-            $exp = $expmonth . '/' . $expyear;
-            $query = "insert into checkout(username,email,phoneNumber,address1.address2,cardName,cardNumber,exp,cvc) values('$username','$email', '$phoneNumber', '$eventDate','$eventTime','$paxNo' ,'$address',
-         '$city', '$state' , '' ,'','',''','')";
-            $results = mysqli_query($db, $query);
-            $id = mysqli_insert_id($db);
+        //payment type = cash
+        if ($paymentType == "cash") {
+            //if there is no error, push data into database
+            if (count($errors) == 0) {
+                $exp = $expMonth . '/' . $expYear;
+                $query = "insert into checkout(username,email,phoneNumber,date, time, address, city, state, zip) 
+            values('$username','$email', '$phoneNumber', '$eventDate','$eventTime', '$address', '$city', '$state', '$zip')";
+                $results = mysqli_query($mysqli, $query);
+                $id = mysqli_insert_id($mysqli); //insert data into checkout table indatabase
 
-            //to be further implemented based on cart
+                if ($id) {
+                    $total = 0;
+                    foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
+                        $mid = $values['ItemID'];
+                        $name = $values["ItemName"];
+                        $quantity = $values['ItemQuantity'];
+                        $price = $values['ItemPrice'];
+                        $totalPrice = ($values["ItemQuantity"] * $values["ItemPrice"]);
+                        mysqli_query($mysqli, "insert into transaction(ItemID,name,price, quantity, totalPrice,checkout_id)
+                        values('$mid','$name','$price', '$quantity', '$totalPrice','$id')"); //insert data into transaction table indatabase
 
-            if ($id) {
-                for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
-                    $cid = $_SESSION['cart'][$i]['id'];
-                    $quantity = $_SESSION['cart'][$i]['quantity'];
-                    mysqli_query($db, "insert into transaction(id,Name',Price,Image, category, checkout_id)
-                values('$id',$name','$price','$image','$category', ''$id')");
-
-                    $row =  mysqli_fetch_assoc(mysqli_query($db, "select * from menu"));
-                    $qty = $row['quantity'];
-                    if ($row['quantity'] != 0) {
-                        $finalqty = $qty - $quantity;
-                        mysqli_query($db, "update product set quantity='$finalqty' where id='$cid'");
+                        //deduct the food stock in database
+                        $row =  mysqli_fetch_assoc(mysqli_query($db, "select * from food_stock"));
+                        $qty = $row['Quantity'];
+                        if ($row['Quantity'] != 0) {
+                            $finalqty = $qty - $quantity;
+                            mysqli_query($db, "update food_stock set Quantity='$finalqty' where id='$mid'");
+                        }
                     }
                 }
                 header('location: transaction.php');
