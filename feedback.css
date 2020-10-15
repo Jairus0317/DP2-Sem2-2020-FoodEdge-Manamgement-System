@@ -3,9 +3,8 @@ body, html {
 }
 
 .bg {
-  height: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size:cover;
@@ -13,6 +12,7 @@ body, html {
   background-repeat: repeat, no-repeat;
   z-index: -1;
 }
+
 .table{
   margin-bottom: 0;
 }
@@ -24,6 +24,14 @@ body, html {
 h1 {
   letter-spacing: 5px;
 }
+
+#result12{
+  background-color: rgba(255, 255, 255, 0.432);
+  background-clip: content-box;
+}
+
+
+
 
 #linee {
   border-top: 2px solid rgb(0, 0, 0);
@@ -73,7 +81,6 @@ h1 {
 }
 /* 5 star rating end */
 
-
 #t1{
   color: beige;
 }
@@ -91,8 +98,4 @@ h1 {
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
  }
-
-
-
-
 
