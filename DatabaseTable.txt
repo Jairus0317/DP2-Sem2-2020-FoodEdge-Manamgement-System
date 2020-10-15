@@ -9,10 +9,10 @@ address varchar(250) not null,
 city varchar(100) not null,
 state varchar (100) not null,
 zip int(5) not null,
-cardname varchar(100),
-cardnumber varchar(50),
-exp varchar(50),
-cvc varchar(50));
+cardname varchar(100) null,
+cardnumber INT (16) null,
+exp varchar(10) null,
+cvc int(3) null ) ;
 
 create table transaction(
 id int not null primary key auto_increment, 
@@ -23,3 +23,5 @@ quantity int unsigned default 1 not null,
 totalPrice double unsigned not null,
 checkout_id int(20) not null,
 foreign key (checkout_id) references checkout(id));
+
+CREATE TABLE `epiz_26849119_FoodEdgeDatabase`.`checkout` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(100) NOT NULL , `email` VARCHAR(100) NOT NULL , `phoneNumber` INT(10) NOT NULL , `date` DATE NOT NULL , `time` TIME(20) NOT NULL , `address` VARCHAR(250) NOT NULL , `city` VARCHAR(100) NOT NULL , `state` VARCHAR(100) NOT NULL , `zip` INT(5) NOT NULL , `cardname` VARCHAR(100) NULL , `cardnumber` INT(16) NULL , `exp` VARCHAR(10) NULL , `cvc` INT(3) NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
