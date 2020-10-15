@@ -83,7 +83,7 @@
 
 <!-- Modal footer -->
 			<div class="modal-footer">
-				<a href="Payment.php">Check out</a>
+				<button type="submit" name="CheckOut" class="btn btn-success"> Check Out </button>
 			</div>
 
 		</div>

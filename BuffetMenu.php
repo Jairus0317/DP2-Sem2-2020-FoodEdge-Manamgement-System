@@ -75,29 +75,20 @@
 	<!--FontAwesome CDN-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 	<title>Buffet Menu</title>
 </head>
 
 <body>
 	
-	<div class = "container-fluid my-container">
+	<div class = "container-fluid my-container BuffetMenuPage">
 
 		<div class="row my-row FeatureBanner justify-content-center" >
 			<h1>Catering Menu</h1>
 		</div>
-
-		<script>
-			$(document).ready(function() 
-			{
-				$("[href]").each(function() 
-				{
-					if (this.href == window.location.href) 
-					{
-						$(this).addClass("ActiveLink");
-					}
-				});
-			});
-		</script>
 
 		<div class="row my-row justify-content-center" >
 			<ul class="menuPageNavi">
@@ -105,6 +96,20 @@
 				<li><a href="CateringServices.php">Catering Services</a></li>
 				<li><a href="BuffetMenu.php">Buffet menu</a></li>
 			</ul>
+
+			
+			<script>
+				$(document).ready(function() 
+				{
+					$("[href]").each(function() 
+					{
+						if (this.href == window.location.href) 
+						{
+							$(this).addClass("ActiveLink");
+						}
+					});
+				});
+			</script>
 		</div>
 
 		<div class="row my-row justify-content-center" >
@@ -167,13 +172,13 @@
 																<div class ="row justify-content-end">
 																	<div class ="col col-md-6 px-0">
 																		<span>Number of pax:</span>
-																		<button type="button" id="ButtonMinus" class="btn bg-light border rounded-circle" data-quantity="minus" data-field="quantity"><i class="fa fa-minus"></i></button>
+																		<button type="button" class="btn bg-light border rounded-circle" data-quantity="minus" data-field="quantity"><i class="fa fa-minus"></i></button>
 																		<input type="number" name="Quantity" class="form-control input-group-field d-inline" value="1">
-																		<button type="button" id="ButtonAdd" class="btn bg-light border rounded-circle" data-quantity="plus" data-field="quantity"><i class="fa fa-plus"></i></button>
+																		<button type="button" class="btn bg-light border rounded-circle" data-quantity="plus" data-field="quantity"><i class="fa fa-plus"></i></button>
 
 																		<script>
-																			let ButtonPlus = document.querySelector('#ButtonAdd');
-																			let ButtonMinus = document.querySelector('#ButtonMinus');
+																			let ButtonPlus = document.querySelector('button[data-quantity=plus]');
+																			let ButtonMinus = document.querySelector('button[data-quantity=minus]');
 																			let QuantityInput = document.querySelector('input[name=Quantity]');
 
 																			ButtonPlus.addEventListener('click', () => {
@@ -184,14 +189,11 @@
 																			ButtonMinus.addEventListener('click', () => {
 																				QuantityInput.value = parseInt(QuantityInput.value) - 1;
 																			});
-
-
-
 																		</script>
 
 																	</div>
 																	<div class ="col col-md-4 px-0">
-																		<button type="submit" name="AddToCart" class="btn btn-success"> Add To Cart <i class="fa fa-shopping-cart"></i></button>
+																		<button type="submit" name="AddToCart" class="btn"> Add To Cart <i class="fa fa-shopping-cart"></i></button>
 																		<input type='hidden' name='ItemID' value='<?php echo $row['ID']?>'>
 																	</div>
 																</div>
@@ -202,7 +204,7 @@
 										</div>
 									</div>
 
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_<?php echo $row['ID']?>">Get Detail</button>
+									<button type="button" class="btn" data-toggle="modal" data-target="#myModal_<?php echo $row['ID']?>">Get Detail</button>
 									
 								</div>
 							</div>
@@ -214,16 +216,14 @@
 
 
 		</div>
+
+		<?php
+			include "ShoppingCart.php";
+		?>
+
 	</div>
 
-	
-	<?php
-			include "ShoppingCart.php";
-	?>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 </body>
 

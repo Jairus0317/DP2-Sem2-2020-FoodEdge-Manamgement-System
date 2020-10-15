@@ -6,13 +6,22 @@
 
 		}
 
-		.btn,
-		.btn:hover,
-		.btn:active,
-		.btn:visited,
-		.btn:focus {
+		.BuffetMenuPage .btn,
+		.BuffetMenuPage .btn:hover,
+		.BuffetMenuPage .btn:active,
+		.BuffetMenuPage .btn:visited,
+		.BuffetMenuPage .btn:focus
+		{
+			color:white;
 			background-color: #ff9900;
 			border-color: #ff9900;
+			outline: none;
+			box-shadow: none;
+		}
+		
+		.btn:hover{
+			transform: scale(1.1);
+			transition: 0.2s;
 		}
 
 
@@ -101,6 +110,8 @@
 			bottom:3%;
 			left:3%;	
 			z-index:999;
+			outline:none;
+			box-shadow:none;
 		}
 
 		.ShoppingCartIcon span{
@@ -121,11 +132,9 @@
 
 		}
 
-	input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	}
-
-
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		}
 
 </style>
