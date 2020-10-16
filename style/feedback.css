@@ -1,0 +1,101 @@
+body, html {
+  height: 100%;
+}
+
+.bg {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-position: top left, center center;
+  background-repeat: repeat, no-repeat;
+  z-index: -1;
+}
+
+.table{
+  margin-bottom: 0;
+}
+
+#background {
+  background-image: url("../images/BG2.jpg");
+}
+
+h1 {
+  letter-spacing: 5px;
+}
+
+#result12{
+  background-color: rgba(255, 255, 255, 0.432);
+  background-clip: content-box;
+}
+
+
+
+
+#linee {
+  border-top: 2px solid rgb(0, 0, 0);
+  width: 150px;
+}
+
+.card {
+  background-color: rgba(37, 37, 37, 0.644);
+}
+
+/* 5 star rating start */
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.rating>input {
+  display: none
+}
+
+.rating>label {
+  position: relative;
+  width: 1em;
+  font-size: 40px;
+  color: #ffd500;
+  cursor: pointer
+}
+
+.rating>label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+  opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+  opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+  opacity: 0.4
+}
+/* 5 star rating end */
+
+#t1{
+  color: beige;
+}
+
+ #he3{
+   color: rgb(255, 255, 255);
+ }
+
+ #SubB{
+  color: rgb(255, 255, 255);
+  background-color: black;
+ }
+
+ #SubB:hover{
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+ }
+
