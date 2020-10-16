@@ -5,66 +5,13 @@
 body {
   margin: 0;
 }
-
-/* Style the header */
-.header {
-  background-color: #252525;
-  position: relative;
-  padding: 50px;
-    overflow: hidden;
-  text-align: center;
-}
-
-
-
-.header img{
-	padding-left:10px;
-	width:35px;
-}
-
-.header {
-	color:white;
-  float: center;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-}
-
 /* Style the top navigation bar */
 
 .topnav img{
 	width:60px;
 }
-	
-.topnav {
-	padding:20px;
-	text-align:center;
-	position:relative;
-  overflow: hidden;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: center;
-  color: #ff9900;
-  text-align: center;
-  padding: 50px 50px;
-  text-decoration: none;
-}
-  
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 .right{
 	float:right;
-}
-/* banner */
-#banner img{
-	height: 60%;
-	width:100%;
 }
 
 /* content class */
@@ -81,31 +28,48 @@ body {
 	position: relative;
 	padding: 10%;
 	overflow: hidden;
-	text-align: center;
+	text-align: left;
 	overflow-x:auto;
 	border-spacing: 2%;
 	border-collapse:collapse;
 	width:100%;
 }
 
-}
-.wedding th, td{
-	text-align: left;
-	width:5%;
-	height: 10%;
-	padding: 8px;
-}
 /* footer */
-.footer{
-	text-align:center;
-	color:#ff9900;
-	background-color:#252525;
+.footer {
+color:white;
+  background-color: #252525;
   position: relative;
-  padding: 20px;
-    overflow: hidden;
+  padding: 50px;
+overflow: hidden;
+  list-style: none;
+    font-size: 20px;
 }
-/* back to top button */
 
+.footer img{
+	padding-right:10px;
+	width:35px;
+}
+
+.footer a{
+    color: white;
+}
+
+.footer a:hover{
+    color:#ff9900;
+    text-decoration: none;
+    transition:0.2s;
+}
+
+.footer h1, p{
+       color:#ff9900; 
+}
+
+.footer p{
+    text-align: center;
+}
+
+/* back to top button */
 .arrow{
 	width:4.5%;
 	text-align:right;
@@ -113,4 +77,93 @@ body {
 	bottom:0;
 	right:0;
 	clear:both;
+}
+/* Horizantal line */
+.hr{
+    width: 100%;
+   	background-color:#ff9900; 
+}
+/* Buffet catering overlay */
+.overlay1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.bc_d:hover .overlay1 {
+  opacity: 1;
+}
+/* Buffet Chinese Banquet overlay */
+
+.overlay2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.cb_d:hover .overlay2 {
+  opacity: 1;
+}
+
+/* Buffet Hawker Stall Style overlay */
+.overlay3 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.hss_d:hover .overlay3 {
+  opacity: 1;
+}
+
+.text {
+    width: 95%;
+  color: white;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.desc img{
+    height:80%;
+    width: 100%;
+}
+/* About page */
+.about{
+    padding:10px;
+}
+.about p{
+    font-size: 20px;
+    color:#252525;
+}
+
+.about img{
+    width:50%;
+}
+
+.about td{
+    text-align: left;
+    vertical-align: middle;
+    font-size: 18px;
 }
