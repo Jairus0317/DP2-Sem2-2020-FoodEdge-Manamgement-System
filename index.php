@@ -63,18 +63,21 @@
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
+  <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="images/homeimage/Slide1.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="images/homeimage/Slide1.jpg" alt="Slide 1" style="width:100%;">
+        <!--image from:https://unsplash.com/photos/SiwrpBnxDww-->
       </div>
 
       <div class="item">
-        <img src="images/homeimage/Slide2.jpg" alt="Chicago" style="width:100%;">
+        <img src="images/homeimage/Slide2.jpg" alt="Slide 2" style="width:100%;">
+         <!--image from:https://unsplash.com/photos/IJuze-KdTFk-->
       </div>
     
       <div class="item">
-        <img src="images/homeimage/Slide3.jpg" alt="New york" style="width:100%;">
+        <img src="images/homeimage/Slide3.jpg" alt="Slide 3" style="width:100%;">
+         <!--image from:https://pixabay.com/photos/restaurant-table-setting-decoration-2697945/-->
       </div>
     </div>
 
