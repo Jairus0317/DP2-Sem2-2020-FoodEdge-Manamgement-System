@@ -3,17 +3,13 @@
 }
 
 body {
-  margin: 0;
-}
-/* Style the top navigation bar */
-
-.topnav img{
-	width:60px;
-}
-.right{
-	float:right;
+margin: 0;
 }
 
+/* Header */
+.header img{
+    width: 35px;
+}
 /* content class */
 .content{
 	text-align:center;
@@ -21,6 +17,20 @@ body {
 
 .content h1{
 	color:#ff9900;
+}
+
+.wedding{
+    padding:10px;
+}
+
+.wedding img{
+    width:100%;
+}
+
+.wedding table{
+    text-align: left;
+    vertical-align: middle;
+    font-size: 18px;
 }
 /* table*/
 .table{
