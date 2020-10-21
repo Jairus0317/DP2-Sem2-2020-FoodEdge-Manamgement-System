@@ -12,8 +12,7 @@ foreach ($_SESSION['ShoppingCart'] as $key => $value) {
     unset($_SESSION[$key]);
 }
 unset($_SESSION['checkout']);
-unset($_SESSION['ShoppingCart']);
-$totalprice = 0;
+$total = 0;
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@ $totalprice = 0;
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/style_A.css">
+    <link rel="stylesheet" href="style/style.css">
     <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="jQuery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -58,45 +57,90 @@ $totalprice = 0;
                     <?php
                     $query = 'Select * from checkout Where id=' . $checkoutid['checkout_id'];
                     $results = mysqli_query($mysqli, $query);
-
                     while ($row = mysqli_fetch_assoc($results)) {
                     ?>
-                        <p><strong>Name : </strong><?php echo $row['username'] ?></p>
-                        <p><strong>Email : </strong><?php echo $row['email'] ?></p>
-                        <p><strong>Phone Number : </strong><?php echo $row['phoneNumber'] ?></p>
-                        <p><strong>Date of Event : </strong><?php echo $row['date'] ?></p>
-                        <p><strong>Serving Time : </strong><?php echo $row['time'] ?></p>
-                        <p><strong>Address : </strong><?php echo $row['address'] ?></p>
-                        <p><strong>City : </strong><?php echo $row['city'] ?></p>
-                        <p><strong>State : </strong><?php echo $row['state'] ?></p>
-                        <p><strong>Zip : </strong><?php echo $row['zip'] ?></p>
+                        <table class="tableTransaction">
+                            <tr>
+                                <th><strong>Name </strong></th>
+                                <th><strong>Email </strong></th>
+                                <th><strong>Phone Number </strong></th>
+                            </tr>
+                            <tr>
+                                <td><?php echo $row['username'] ?></td>
+                                <td><?php echo $row['email'] ?></td>
+                                <td><?php echo $row['phoneNumber'] ?></td>
+                            </tr>
+                        </table>
+                    <?php
+                    }
+                    ?>
+                </div>
 
+                <div class="receiptMenuList">
+                    <hr />
+                    <h4> Eveny's Detail </h4>
+                    <?php
+                    $query = 'Select * from checkout Where id=' . $checkoutid['checkout_id'];
+                    $results = mysqli_query($mysqli, $query);
+                    while ($row = mysqli_fetch_assoc($results)) {
+                    ?>
+                        <table class="tableTransaction">
+                            <tr>
+                                <th><strong>Date of Event </strong></th>
+                                <th><strong>Serving Time </strong></th>
+                                <th><strong>Address </strong></th>
+                                <th><strong>City </strong></th>
+                                <th><strong>State </strong></th>
+                                <th><strong>Zip </strong></th>
+                                
+                            </tr>
+                            <tr>
+                            <td><?php echo $row['date'] ?></td>
+                                <td><?php echo $row['time'] ?></td>
+                                <td><?php echo $row['address'] ?></td>
+                                <td><?php echo $row['city'] ?></td>
+                                <td><?php echo $row['state'] ?></td>
+                                <td><?php echo $row['zip'] ?></td>
+                            </tr>
+                        </table>
                     <?php
                     }
                     ?>
 
 
                 </div>
+
                 <hr />
                 <!-- Display Menu Booked -->
                 <div class="receiptMenuList">
                     <h4> Menu Booked </h4>
-                    <?php
-                    if (isset($_SESSION['ShoppingCart'])) {
-                        $total = 0;
+                    <table class="tableTransaction">
+                        <tr>
+                            <th><strong>Menu </strong></th>
+                            <th><strong>No of Pax </strong></th>
+                            <th><strong>Price per Menu </strong></th>
+                            <th><strong>Calculated price per Menu </strong></th>
+                        </tr>
+                        <?php
+                        if (isset($_SESSION['ShoppingCart'])) {
+                            $total = 0;
 
-                        foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
-                    ?>
-                            <p><strong>Menu : </strong><?php echo $values["ItemName"]; ?></p>
-                            <p><strong>No of Pax: </strong><?php echo $values["ItemQuantity"]; ?></p>
-                            <p><strong>Price per Menu: </strong>RM <?php echo number_format($values["ItemPrice"], 2); ?></p>
-                            <p><strong>Calculated price per Menu: </strong>RM <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></p>
-                            <hr />
-                    <?php
-                            $total = $total + ($values["ItemQuantity"] * $values["ItemPrice"]);
+                            foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $values["ItemName"]; ?></td>
+                                    <td><?php echo $values["ItemQuantity"]; ?></td>
+                                    <td>RM <?php echo number_format($values["ItemPrice"], 2); ?></td>
+                                    <td>RM <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></td>
+                                </tr>
+
+                        <?php
+                                $total = $total + ($values["ItemQuantity"] * $values["ItemPrice"]);
+                            }
                         }
-                    }
-                    ?>
+
+                        ?>
+                    </table>
 
                     <!-- Display Total Price from booking -->
                     <?php
@@ -117,9 +161,9 @@ $totalprice = 0;
                             ?> </strong></p>
 
                     <!-- Allow user to print the recipt -->
-                    <a class="btn btn-outline-dark text-center" href="" onclick="window.print()">Print This</a>
+                    <p><a class="btn btn-outline-dark text-center" href="" onclick="window.print()">Print This</a></p>
                     <!-- Return to homepage -->
-                    <a class="btn btn-outline-dark text-center" href="index.php">Back to homepage</a>
+                    <p><a class="btn btn-outline-dark text-center" href="index.php" <?php unset($_SESSION['ShoppingCart']); ?>>Back to homepage</a></p>
 
                 </div>
             </div>

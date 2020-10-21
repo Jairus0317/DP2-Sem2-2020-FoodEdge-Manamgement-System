@@ -545,7 +545,7 @@ button[type="reset"] {
     padding: 50px;
     border-radius: 10px;
     margin: auto;
-    width: 80%;
+    width: 50%;
     margin-top: 5%;
 }
 
@@ -555,6 +555,7 @@ button[type="reset"] {
     color: #ff9900;
     background-color: #ffffff;
     border-radius: 10px;
+    margin: 5px;
 }
 
 #receipt h1,
@@ -567,8 +568,16 @@ button[type="reset"] {
     font-size: medium;
 }
 
-#receiptNo,
-.receiptMenuList {
+.tableTransaction,
+.tableTransaction tr,
+.tableTransaction td,
+.tableTransaction th {
+    padding: 8px;
+    border: 1px solid black;
+    margin: 2px;
+}
+
+#receiptNo {
     text-align: center;
 }
 
