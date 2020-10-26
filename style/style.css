@@ -1,0 +1,670 @@
+<style>
+	.my-row{
+	}
+
+	.my-col{
+
+	}
+	html{
+		height:100%;
+	}
+	/*------------------------------------ Home Page ------------------------------------*/
+
+
+	/* content class */
+
+	.content{
+		text-align:center;
+		height:500px;
+	}
+
+	.content h1{
+		color:#ff9900;
+	}
+
+	.wedding h2{
+		text-align: center;
+	}
+
+	.wedding img{
+		width:100%;
+	}
+
+	.wedding table{
+		text-align: left;
+		vertical-align: middle;
+		font-size: 18px;
+	}
+	/* table*/
+	.table{
+		position: relative;
+		text-align: left;
+		overflow-x:auto;
+		border-spacing: 2%;
+		border-collapse:collapse;
+		width:100%;
+	}
+
+	/* footer */
+	.footer {
+		color:white;
+		background-color: #252525;
+		position: relative;
+		overflow: hidden;
+		list-style: none;
+		font-size: 20px;
+	}
+
+	.footer img{
+		margin-right:10px;
+		width:35px;
+	}
+
+	.footer a{
+		color: white;
+	}
+
+	.footer a:hover{
+		color:#ff9900;
+		text-decoration: none;
+		transition:0.2s;
+	}
+
+	.footer h1, 
+	.footer p{
+		color:#ff9900; 
+	}
+
+	.footer p{
+		text-align: center;
+	}
+
+	/* back to top button */
+	.arrow{
+		text-align:right;
+		position:fixed;
+		bottom:1%;
+		right:1%;
+		clear:both;
+	}
+	.arrow img{
+		width:70%;
+	}
+
+
+	/* Buffet catering overlay */
+	.overlay1,
+	.overlay2,
+	.overlay3 {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 80%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	}
+
+	.bc_d:hover .overlay1,
+	.cb_d:hover .overlay2,
+	.hss_d:hover .overlay3 {
+	opacity: 1;
+	}
+
+	.text {
+	width: 95%;
+	color: white;
+	position: absolute;
+	top: 62%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}
+
+
+	.desc img{
+		width:100%;
+		object-fit:cover;
+		height:400px;
+	}
+
+	/* About page */
+	.about{
+		padding:10px;
+	}
+	.about p{
+		font-size: 20px;
+		color:#252525;
+	}
+
+	.about img{
+		width:50%;
+	}
+
+	.about td{
+		text-align: left;
+		vertical-align: middle;
+		font-size: 18px;
+	}
+
+
+
+	/*------------------------------------  Login Page ------------------------------------*/
+	.loginpage{
+		height:100%;
+		background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("../images/BackgroundImage.jpg");
+		background-size: cover;	
+		background-repeat: no-repeat;
+		justify-content: center;
+	}
+
+	.loginpage .container{
+		height: 100%;
+	}
+
+	.loginform{
+		height: 80%;
+		align-items: center;
+	}
+
+	.loginform .card{
+		display: flex;
+		height: 370px;
+		width: 40%;
+		background-color: rgba(0,0,0,0.5);
+	}
+
+	.loginform .card-header h3{
+		color: white;
+	}
+
+
+	.loginform .input-group span{
+		width: 50px;
+		background-color: #ff9900;
+		color: black;
+		border:0;
+	}
+
+
+	.loginform .remember{
+		color: white;
+	}
+
+	.loginform .remember input{
+		width: 20px;
+		height: 20px;
+		margin-left: 15px;
+		margin-right: 5px;
+	}
+
+	.loginform input[type="submit"]{
+		background-color: #ff9900;
+		width: 100px;
+	}
+
+	.loginform input[type="submit"]:hover{
+		color: white;
+		transform: scale(1.1);
+		transition: 0.2s;
+	}
+
+	.loginform{
+		color: white;
+	}
+
+	.loginform a{
+		margin-left: 4px;
+		color: #ff9900;
+	}
+
+		/*------------------------------------ Register Page ------------------------------------*/
+
+	.registerpage{
+		height:100%;
+		background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("../images/BackgroundImage.jpg");
+		background-size: cover;	
+		background-repeat: no-repeat;
+		justify-content: center;
+	}
+
+	.registerpage .container{
+		height: 100%;
+	}
+
+	.registerpage .registerform{
+		height: 100%;
+		align-items: center;
+	}
+
+	#regForm{
+		background-color: rgba(0,0,0,0.5);
+		color:white;
+		padding:5% 10%;
+	}
+
+	
+	#regForm h1{
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	#regForm td{
+		padding: 10px;
+	}
+
+	#regForm tr:last-child td:first-child{
+		text-align:right;
+	}
+
+	#regForm a{
+		display: inline-block;;
+		text-align: center;
+		text-decoration: none;
+		color:black;
+		padding: 7px 20px;
+		border-radius: 3px;
+	}
+
+	#regForm input[type="submit"],
+	#regForm a{
+		background-color: #ff9900;
+		width: 100px;
+		font-size: 20px;
+		margin:0 10px;
+	}
+
+	#regForm input[type="submit"]:hover,
+	#regForm a:hover{
+		color: white;
+		transform: scale(1.1);
+		transition: 0.2s;
+	}
+
+		/*------------------------------------ Catering Service Page ------------------------------------*/
+		.FeatureBanner{
+			color:white;
+			height:300px;
+			background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("../images/CateringServicesPage/ServicePageBanner.jpg");
+			background-size:cover;
+			background-repeat:no-repeat;
+			display: flex;
+    		align-items: center;
+		}
+		
+		.MenuBanner{
+			background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("../images/Menu/MenuPageBanner.jpg");
+			background-size:cover;
+			background-repeat:no-repeat;
+		}
+        
+        .ServicesCard{  
+            margin: 40px 20px 0 20px;
+        }
+
+        .ServicesCard img{
+            width:100%;
+			object-fit:cover;
+			height:300px;
+			overflow:hidden;
+        }
+
+		
+		/*------------------------------------ Menu Page ------------------------------------*/
+		.menuPageNavi{
+			list-style:none;
+			display:flex;
+			margin:50px 0;
+		}
+		
+		.menuPageNavi a
+		{
+			text-decoration:none;
+			color:#252525;
+		}
+
+		.menuPageNavi a:hover
+		{
+			color:#ff9900;
+			transition:0.2s;
+		}
+
+		.menuPageNavi .ActiveLink
+		{
+			color:#ff9900;
+		}
+
+		.menuPageNavi a:active
+		{
+			color:red;
+			transition:0.2s;
+		}
+
+        
+		.menuPageNavi li:not(:last-child):after{
+			content: '/';
+			padding:0 10px;
+		}
+
+		.BuffetMenuPage .btn,
+		.BuffetMenuPage .btn:hover,
+		.BuffetMenuPage .btn:active,
+		.BuffetMenuPage .btn:visited,
+		.BuffetMenuPage .btn:focus
+		{
+			color:white;
+			background-color: #ff9900;
+			border-color: #ff9900;
+			outline: none;
+			box-shadow: none;
+		}
+		
+		.BuffetMenuPage.btn:hover{
+			transform: scale(1.1);
+			transition: 0.2s;
+		}
+
+		.BuffetMenuPage .card{
+			width: 18rem;
+			margin:20px;
+			text-align:center;
+		}
+
+		.BuffetMenuPage .card > img{
+			height:270px;
+			object-fit:cover;
+			overflow:hidden;
+		}
+
+		/*Menu Detail*/
+		.modalMenu{
+			height:400px;
+            overflow:hidden;
+            
+		}
+
+		.modalMenu > img{
+            width:100%;
+            height:400px;
+            object-fit:cover;
+		}
+
+		/*Shopping Cart*/
+		.ShoppingCartIcon input{
+			position:fixed;
+			bottom:3%;
+			left:3%;	
+			z-index:999;
+			outline:none;
+			box-shadow:none;
+		}
+
+		.ShoppingCartIcon span{
+			background-color: #ff9900;
+			border-radius:0.2vw;
+			font-size:1vw;
+			position:fixed;
+			bottom:9.7%;
+			left:6.5%;	
+			z-index:999;
+		}
+
+		.AddToCart .form-control{
+			width: 20%;
+			text-align:center;
+
+		}
+
+		.AddToCart .fa-minus,
+		.AddToCart .fa-plus{
+			color:#ff9900;
+		}
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		}
+
+
+		#ShoppingCartModal .modal-footer a{
+			display: inline-block;;
+			text-align: center;
+			text-decoration: none;
+			color:white;
+			padding: 7px 20px;
+			border-radius: 3px;
+			background-color: #ff9900;
+			margin:0 10px;
+		}
+	
+		#ShoppingCartModal .modal-footer a:hover{
+			color: white;
+			transform: scale(1.1);
+			transition: 0.2s;
+		}
+
+
+
+		/*------------------------------------ Payment Page ------------------------------------*/
+		.paymentTransaction{
+			padding: 100px;
+			background-color: #252525;
+		}
+		
+		#buttonDiv{
+			text-align: end;
+			margin-top: 30px;
+			margin-right: 15px;
+		}
+
+		.paymentTitle{
+			text-align: center;
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			color: #ff9900;
+		}
+		
+		#paymentPageP{
+			text-align: center;
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+		}
+		
+		.type{
+			color:#ff9900;
+			font-size: large;
+			font-style: italic;
+			padding-top: 5%;
+		}
+		
+		input[type="radio"]{
+			margin-right: 10px;
+		}
+		
+		.paymentArea{
+			padding-top: 10%;
+			width: 90%;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			margin: auto;
+			background-color: white;
+			border-radius: 10px;
+		}
+		
+		#payment{
+			background-color: white;
+		}
+		
+		#paymentSummary{
+			background-color: #E8E8E8;
+			padding-left: 30px;
+			padding-right: 30px;
+			padding-top: 3px;
+			padding-bottom: 10px;
+			border-radius: 10px;
+			margin-top: 2.5%;
+		
+		}
+		
+		#orderSum{
+			color:#ff9900 ;
+			font-size: large;
+			font-style: italic;
+			text-align: center;
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			background-color: #ffffff;
+			border-radius: 10px;
+			padding: 5px;
+		}
+		
+		button[type="submit"], button[type="reset"]{
+			margin: 5px;
+			float: left;
+		}
+		
+		.cardType{
+			width: 50px;
+			height: 35px;
+			padding: 5px;
+		}
+		
+		#transctionBody{
+			background-color: #252525;
+			background-blend-mode:screen;
+		}
+		
+		#receipt{
+			background-color: white;
+			padding: 50px;
+			border-radius: 10px;
+			margin: auto;
+			width: 80%;
+			margin-top: 5%;
+		}
+		
+
+		
+		#totalPriceSum{
+			font-size: x-large;
+			text-align: center;
+			color: #ff9900;
+			background-color: #ffffff;
+			border-radius: 10px;
+		}
+		
+		#receipt h1, #receipt h4{
+			color: #ff9900;
+		}
+		
+		#receipt h2,#receipt h4{
+			font-size: medium;
+		}
+		
+		#receiptNo, .receiptMenuList{
+			text-align: center;
+		}
+		
+		
+
+		/*------------------------------------ Feedback Page ------------------------------------*/
+		
+	.feedbackpage .bg {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-position: top left, center center;
+	background-repeat: repeat, no-repeat;
+	z-index: -1;
+  }
+  
+  .feedbackpage .table{
+	margin-bottom: 0;
+  }
+  
+  .feedbackpage #background {
+	background-image: url("../images/BG2.jpg");
+  }
+  
+  .feedbackpage h1 {
+	letter-spacing: 5px;
+  }
+  
+  .feedbackpage #result12{
+	background-color: rgba(255, 255, 255, 0.432);
+	background-clip: content-box;
+  }
+  
+  
+  
+  
+  .feedbackpage #linee {
+	border-top: 2px solid rgb(0, 0, 0);
+	width: 150px;
+  }
+  
+  .feedbackpage .card {
+	background-color: rgba(37, 37, 37, 0.644);
+  }
+  
+  /* 5 star rating start */
+  .feedbackpage .rating {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+  }
+  
+  .feedbackpage .rating>input {
+	display: none
+  }
+  
+  .feedbackpage .rating>label {
+	position: relative;
+	width: 1em;
+	font-size: 40px;
+	color: #ffd500;
+	cursor: pointer
+  }
+  
+  .feedbackpage .rating>label::before {
+	content: "\2605";
+	position: absolute;
+	opacity: 0
+  }
+  
+  .feedbackpage .rating>label:hover:before,
+  .feedbackpage .rating>label:hover~label:before {
+	opacity: 1 !important
+  }
+  
+  .feedbackpage .rating>input:checked~label:before {
+	opacity: 1
+  }
+  
+  .feedbackpage .rating:hover>input:checked~label:before {
+	opacity: 0.4
+  }
+  /* 5 star rating end */
+  
+  .feedbackpage #t1{
+	color: beige;
+  }
+  
+  .feedbackpage #he3{
+	 color: rgb(255, 255, 255);
+   }
+  
+   .feedbackpage #SubB{
+	color: rgb(255, 255, 255);
+	background-color: black;
+   }
+  
+   .feedbackpage #SubB:hover{
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+   }
+  
+  
+</style>
