@@ -19,10 +19,45 @@
 <body>
 	<?php require_once ("component/topnav.php"); ?>
 
+<<<<<<< Updated upstream
 	<div class = "container-fluid my-container BuffetMenuPage">
 
 	</div>
 
+=======
+	<div class = "container-fluid my-container">
+		<div class="row">
+			<div class="col-2 managementSideBar">
+				<ul>
+					<li><a href="profile.php">User Profile</a></li>
+					<li><a href="activeorder.php">Active Orders</a></li>
+					<li><a href="invoices.php">Invoices</a></li>
+					<li><a href="foodandbeverage.php">Food and Beverage Status</a></li>
+					<li><a href="businessanalytics.php">Business Analytic</a></li>
+				</ul>
+			</div>
+
+			<div class="col-10">
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+				<p>User profile</p>
+			</div>
+		</div>
+	</div>
+
+	<?php require_once ("component/footer.php"); ?>
+
+
+>>>>>>> Stashed changes
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 
 <div class="ShoppingCartIcon">
@@ -18,6 +19,8 @@
 </div>
 
 
+=======
+>>>>>>> Stashed changes
 <!-- The Modal -->
 <div class="modal fade" id="ShoppingCartModal">
 	<div class="modal-dialog modal-lg modal-dialog-centered">
@@ -83,7 +86,11 @@
 
 <!-- Modal footer -->
 			<div class="modal-footer">
+<<<<<<< Updated upstream
 				<a href="payment.php"> Check Out </button>
+=======
+				<a href="payment.php"> Check Out </a>
+>>>>>>> Stashed changes
 			</div>
 
 		</div>
