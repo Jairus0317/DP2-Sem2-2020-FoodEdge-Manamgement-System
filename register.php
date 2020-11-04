@@ -1,3 +1,8 @@
+ <?php
+session_start();
+ 
+?>
+ 
  <!DOCTYPE html>
 <html>
 	<!--Description : Register Page-->
@@ -11,14 +16,13 @@
 	<link rel="stylesheet" href="style/style.css">
 <!--FontAwesome CDN-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body class="registerpage">
+
 	<div class = "container">
 		<div class="registerform d-flex justify-content-center">
-			<form id="regForm" name="registerform"  method="post" enctype="application/x-www-form-urlencoded" class="reg" action="login.php"> 
+			<form id="regForm" name="registerform"  method="post" enctype="text/plain" class="reg" action="login.php"> 
 				<fieldset>
 					<table>
 						<tr>
@@ -26,7 +30,7 @@
 						</tr>
 						<tr>
 							<td><label for="username">Username</label></td>
-							<td><input type="text" id="username" name="username" size="16"></td>
+							<td><input type="text" id="username" name="username" size="16" value="<?php echo $username; ?>"></td>
 						</tr>
 						<tr>
 							<td><label for="password">Password</label></td>
@@ -51,7 +55,7 @@
 							<td colspan="3"><textarea name="address" id="address" rows="8" cols="65" placeholder="Please enter your address"></textarea></td>
 						</tr>				
 						<tr>
-							<td colspan="2"><input type="submit" class="btn" value="Register"></td>
+							<td colspan="2"><input type="submit" class="btn" name="register" value="Register"></td>
 							<td colspan="2"><a href="login.php">Back</button></td>
 						</tr>
 					</table>
@@ -59,37 +63,62 @@
 			</form>
 		</div>
 
+
+</body>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+    }
+
+	function triggerHtmlEvent(element, eventName) {
+	  var event;
+	  if (document.createEvent) {
+		event = document.createEvent('HTMLEvents');
+		event.initEvent(eventName, true, true);
+		element.dispatchEvent(event);
+	  } else {
+		event = document.createEventObject();
+		event.eventType = eventName;
+		element.fireEvent('on' + event.eventType, event);
+	  }
+	}
+
+	jQuery('.lang-select').click(function() {
+	  var theLang = jQuery(this).attr('data-lang');
+	  jQuery('.goog-te-combo').val(theLang);
+
+	  //alert(jQuery(this).attr('href'));
+	  window.location = jQuery(this).attr('href');
+	  location.reload();
+
+	});
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</html>
 <?php  
-if(isset($_POST["submit"])){  
-if(!empty($_POST['user']) && !empty($_POST['pass']) && !empty($_POST['email']) && !empty($_POST['phone'])) {  
-    $user=$_POST['user'];  
-    $pass=$_POST['pass'];  
+if(isset($_POST["register"])){  
+if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['email']) && !empty($_POST['phone'])) {  
+    $user=$_POST['username'];  
+    $pass=$_POST['password'];  
 	$email=$_POST['email'];  
 	$phone=$_POST['phone'];  
-    $con=mysql_connect('localhost','root','') or die(mysql_error());  
-    mysql_select_db('user_registration') or die("cannot select DB");  
+    $mysqli = new mysqli("sql201.epizy.com","epiz_26849119","S4zZzz1Cs4G6","epiz_26849119_FoodEdgeDatabase") or die($mysqli -> connect_errno);  
   
-    $query=mysql_query("SELECT * FROM login WHERE username='".$user."'");  
-    $numrows=mysql_num_rows($query);  
-    if($numrows==0)  
-    {  
-    $sql="INSERT INTO login(username,password,email,phone) VALUES('$user','$pass'.'$email','$phone')";  
+	  
+    $sql="INSERT INTO register(username,password,email,phone) VALUES('$user','$pass'.'$email','$phone')";  
   
-    $result=mysql_query($sql);  
+    $result=mysqli_query($mysqli, $sql);  
         if($result){  
     echo "Account Successfully Created";  
     } else {  
     echo "Failure!";  
     }  
   
-    } 
+     
   
 }
 }  
 ?>  
-</body>
-</html>
-
 
 
  

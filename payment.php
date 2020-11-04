@@ -1,5 +1,6 @@
 <?php
-include('component/methods.php');
+include('methods.php');
+session_id('checkout');
 
 $discount = '0';
 
@@ -22,15 +23,15 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body class="paymentTransaction">
+
     <div class="paymentArea">
-        <h1 class="paymentTitle">Payment</h1>
-        <p id="paymentPageP">Please fill out the form to proceed with the payment</p>
-        
         <!-- Payment Form -->
         <div class="col-12 col-md-8 order-2 order-md-1" id="payment">
+            <h1 class="paymentTitle">Payment</h1>
+            <p id="paymentPageP">Please fill out the form to proceed with the payment</p>
             <form method="post" id="paymentForm" action="payment.php">
-                
-            <!-- Display validation error -->
+
+                <!-- Display validation error -->
                 <?php echo display_error(); ?>
 
                 <!-- Personal Information Form -->
@@ -155,52 +156,78 @@ if (isset($_SESSION['user'])) {
                     <button type="submit" name="proceed" class="btn btn-primary">Proceed</button>
                     <button type="reset" name="reset" class="btn btn-primary">Reset</button>
                 </div>
-
-                
             </form>
 
         </div>
+    </div>
 
-        <!-- Display Items from Cart -->
-        <div class="col-12 col-md-4 order-1 order-md-2">
-            <aside id="paymentSummary">
-                <h3 id="orderSum">Order Summary</h3>
+    <!-- Display Items from Cart -->
+    <div class="col-12 col-md-4 order-1 order-md-2">
+        <aside id="paymentSummary">
+            <h3 id="orderSum">Order Summary</h3>
+            <hr />
+            <?php
+            $total = 0;
+
+            foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
+            ?>
+                <p><strong>Menu : </strong><?php echo $values["ItemName"]; ?></p>
+                <p><strong>No of Pax: </strong><?php echo $values["ItemQuantity"]; ?></p>
+                <p><strong>Price per Menu: </strong>RM <?php echo number_format($values["ItemPrice"], 2); ?></p>
+                <p><strong>Calculated price per Menu: </strong>RM <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></p>
                 <hr />
-                <?php
-                $total = 0;
+            <?php
+                $total = $total + ($values["ItemQuantity"] * $values["ItemPrice"]);
+            }
+            ?>
 
-                foreach ($_SESSION["ShoppingCart"] as $keys => $values) {
-                ?>
-                    <p><strong>Menu : </strong><?php echo $values["ItemName"]; ?></p>
-                    <p><strong>No of Pax: </strong><?php echo $values["ItemQuantity"]; ?></p>
-                    <p><strong>Price per Menu: </strong>RM <?php echo number_format($values["ItemPrice"], 2); ?></p>
-                    <p><strong>Calculated price per Menu: </strong>RM <?php echo number_format($values["ItemQuantity"] * $values["ItemPrice"], 2); ?></p>
-                    <hr />
-                <?php
-                    $total = $total + ($values["ItemQuantity"] * $values["ItemPrice"]);
-                }
-                ?>
+            <!-- Calculate Price either customer is applicable for discount or not -->
+            <?php
+            if ($discount != '0') { ?>
+                <p><?php echo "Membership Discount : 20% "; ?></p>
+                <p><?php echo "Price before discount : RM" . $total; ?></p>
+            <?php } ?>
+            <p id="totalPriceSum"><strong> Total : RM
+                    <?php
+                    if ($discount != '0') {
+                        $beforeDiscount = $total;
+                        $afterDiscount = ($discount / 100) * $beforeDiscount;
+                        echo number_format($afterDiscount, 2);
+                    } else {
+                        echo $total;
+                    }
 
-                <!-- Calculate Price either customer is applicable for discount or not -->
-                <?php
-                if ($discount != '0') { ?>
-                    <p><?php echo "Membership Discount : 20% "; ?></p>
-                    <p><?php echo "Price before discount : RM" . $total; ?></p>
-                <?php } ?>
-                <p id="totalPriceSum"><strong> Total : RM
-                        <?php
-                        if ($discount != '0') {
-                            $beforeDiscount = $total;
-                            $afterDiscount = ($discount / 100) * $beforeDiscount;
-                            echo number_format($afterDiscount, 2);
-                        } else {
-                            echo $total;
-                        }
-
-                        ?> </strong></p>
-            </aside>
-        </div>
+                    ?> </strong></p>
+        </aside>
     </div>
 </body>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+    }
 
+	function triggerHtmlEvent(element, eventName) {
+	  var event;
+	  if (document.createEvent) {
+		event = document.createEvent('HTMLEvents');
+		event.initEvent(eventName, true, true);
+		element.dispatchEvent(event);
+	  } else {
+		event = document.createEventObject();
+		event.eventType = eventName;
+		element.fireEvent('on' + event.eventType, event);
+	  }
+	}
+
+	jQuery('.lang-select').click(function() {
+	  var theLang = jQuery(this).attr('data-lang');
+	  jQuery('.goog-te-combo').val(theLang);
+
+	  //alert(jQuery(this).attr('href'));
+	  window.location = jQuery(this).attr('href');
+	  location.reload();
+
+	});
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>

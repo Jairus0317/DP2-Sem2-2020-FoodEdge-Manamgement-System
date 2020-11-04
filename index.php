@@ -15,14 +15,12 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <title>FoodEdge Gourmet</title>
 </head>
 
-<body>
-
+<body>`
 <!--navigation bar--> 
-<div class = "container-fluid my-container">
-  <div class="row header">
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -41,11 +39,18 @@
             <li><a href="feedback.php">FeedBack</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+        <div class = "dropdown">
+		<button class="dropbtn"><img src="images/Homepage/worldwide.png" width="20px" alt="Language"</button>
+		 <div class="dropdown-content">
+		  <a href="#googtrans(en|en)" class="lang-en lang-select" data-lang="en">English</a>
+		  <a href="#googtrans(en|ms)" class="lang-es lang-select" data-lang="MS">Malay</a>
+		  <a href="#googtrans(en|zh-CN)" class="lang-es lang-select" data-lang="zh-CN">Chinese</a>
+		</div>	
+	</div>
             <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
     </nav>
-  </div>
 
 <!-- slide show-->
   <div class="row">
@@ -87,10 +92,12 @@
     </div>
 </div>
 
+<div class="slogan">
 <div class ="row content justify-content-center">
     <h1>GREAT PEOPLE + GREAT FOOD</h1>
     <p>We offer a wide range of catering services, from company party, school party to wedding.</p>
     <p>Browse our sample menus for mouth-watering ideas for your next event.</p>
+</div>
 </div>
 
 <div class="row desc">
@@ -203,4 +210,34 @@
 </div>
 
 </body>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+    }
+
+	function triggerHtmlEvent(element, eventName) {
+	  var event;
+	  if (document.createEvent) {
+		event = document.createEvent('HTMLEvents');
+		event.initEvent(eventName, true, true);
+		element.dispatchEvent(event);
+	  } else {
+		event = document.createEventObject();
+		event.eventType = eventName;
+		element.fireEvent('on' + event.eventType, event);
+	  }
+	}
+
+	jQuery('.lang-select').click(function() {
+	  var theLang = jQuery(this).attr('data-lang');
+	  jQuery('.goog-te-combo').val(theLang);
+
+	  //alert(jQuery(this).attr('href'));
+	  window.location = jQuery(this).attr('href');
+	  location.reload();
+
+	});
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>

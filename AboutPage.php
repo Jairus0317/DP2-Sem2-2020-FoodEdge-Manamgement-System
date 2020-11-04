@@ -9,13 +9,18 @@
         <meta http-equiv="Cache-control" content="no-cache">
         <!--Bootstrap CDN-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <!--FontAwesome CDN-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
         <link rel="stylesheet" href="style/style.css">
         <title>About Page</title>
     </head>
 
     <body>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
           <div class="row my-row FeatureBanner justify-content-center" >
 			<h1>About us</h1>
 		</div>
@@ -46,7 +51,7 @@
                             <!--image from: https://www.thechairmansbao.com/wp-content/uploads/2017/11/Chinese-Wedding-Banquet-Spread.jpg-->
                         </tr>               
                         <tr>
-                            <td scope="col"><img class = "img-fluid" src = "images/Homepage/Service3_HawkerStallStyle1.jpg" alt = "Hawker stall style image" ></td>
+                            <td scope="col"><img class = "img-fluid" src = "images/CateringServicesPage/Service3_HawkerStallStyle.jpg" alt = "Hawker stall style image" ></td>
                             <!--image from: https://www.bigonioncaterer.com.my/wp-content/uploads/2020/01/Hawker-Stall-2-1024x683-1.jpg-->
                             <td scope="col">Hawker Stall Style is present by FoodEdge Gourmet.Hawker Stall Style present the local food of Malaysia to let the guest taste the Malaysia typical food. </td>
                         </tr>
@@ -58,4 +63,34 @@
 
 
     </body>
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+    }
+
+	function triggerHtmlEvent(element, eventName) {
+	  var event;
+	  if (document.createEvent) {
+		event = document.createEvent('HTMLEvents');
+		event.initEvent(eventName, true, true);
+		element.dispatchEvent(event);
+	  } else {
+		event = document.createEventObject();
+		event.eventType = eventName;
+		element.fireEvent('on' + event.eventType, event);
+	  }
+	}
+
+	jQuery('.lang-select').click(function() {
+	  var theLang = jQuery(this).attr('data-lang');
+	  jQuery('.goog-te-combo').val(theLang);
+
+	  //alert(jQuery(this).attr('href'));
+	  window.location = jQuery(this).attr('href');
+	  location.reload();
+
+	});
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>
