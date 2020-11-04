@@ -8,8 +8,9 @@
 	html{
 		height:100%;
 	}
-<<<<<<< Updated upstream
-=======
+
+	.my-container{
+	}
 
 
 	/*------------------------------------ Header (Top Navbar) ------------------------------------*/
@@ -89,7 +90,6 @@
 	}
 
 
->>>>>>> Stashed changes
 	/*------------------------------------ Home Page ------------------------------------*/
 
 
@@ -127,42 +127,6 @@
 		width:100%;
 	}
 
-<<<<<<< Updated upstream
-	/* footer */
-	.footer {
-		color:white;
-		background-color: #252525;
-		position: relative;
-		overflow: hidden;
-		list-style: none;
-		font-size: 20px;
-	}
-
-	.footer img{
-		margin-right:10px;
-		width:35px;
-	}
-
-	.footer a{
-		color: white;
-	}
-
-	.footer a:hover{
-		color:#ff9900;
-		text-decoration: none;
-		transition:0.2s;
-	}
-
-	.footer h1, 
-	.footer p{
-		color:#ff9900; 
-	}
-
-	.footer p{
-		text-align: center;
-	}
-=======
->>>>>>> Stashed changes
 
 	/* back to top button */
 	.arrow{
@@ -399,6 +363,10 @@
 
 		
 		/*------------------------------------ Menu Page ------------------------------------*/
+		.BuffetMenuPage{
+			margin-bottom: 100px;
+		}
+		
 		.menuPageNavi{
 			list-style:none;
 			display:flex;
@@ -478,27 +446,6 @@
 		}
 
 		/*Shopping Cart*/
-<<<<<<< Updated upstream
-		.ShoppingCartIcon input{
-			position:fixed;
-			bottom:3%;
-			left:3%;	
-			z-index:999;
-			outline:none;
-			box-shadow:none;
-		}
-
-		.ShoppingCartIcon span{
-			background-color: #ff9900;
-			border-radius:0.2vw;
-			font-size:1vw;
-			position:fixed;
-			bottom:9.7%;
-			left:6.5%;	
-			z-index:999;
-		}
-=======
->>>>>>> Stashed changes
 
 		.AddToCart .form-control{
 			width: 20%;
@@ -754,8 +701,6 @@
 	background-color: rgb(255, 255, 255);
    }
   
-<<<<<<< Updated upstream
-=======
 
    	/*------------------------------------ Management Team Page ------------------------------------*/
 
@@ -785,6 +730,5 @@
 	}
   
   
->>>>>>> Stashed changes
   
 </style>

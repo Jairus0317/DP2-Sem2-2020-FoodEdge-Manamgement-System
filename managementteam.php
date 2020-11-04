@@ -19,12 +19,6 @@
 <body>
 	<?php require_once ("component/topnav.php"); ?>
 
-<<<<<<< Updated upstream
-	<div class = "container-fluid my-container BuffetMenuPage">
-
-	</div>
-
-=======
 	<div class = "container-fluid my-container">
 		<div class="row">
 			<div class="col-2 managementSideBar">
@@ -57,7 +51,6 @@
 	<?php require_once ("component/footer.php"); ?>
 
 
->>>>>>> Stashed changes
 </body>
 
 </html>
