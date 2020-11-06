@@ -1,6 +1,6 @@
 <?php
 include('Config.php');
-$total =0;
+$total = 0;
 ?>
 
 <!DOCTYPE html>
@@ -59,22 +59,22 @@ $total =0;
 						if ($valueBefore == $value) {
 						} else {
 					?>
-							<p>
+							<div id="ReceiptP">
 								<?php
 								echo '<em> Receipt No : ' . $value . '<br> </em>';
 								?>
-								<p><a id="show" type="button" class="btn btn-outline-dark text-center">Show</a></p>
-							<?php
-						}
-						$valueBefore = $value
-							?>
-							</p>
+								<p><a id="show" type="button" class="btn text-center buttonOutline">Show</a></p>
+								<?php
+
+								$valueBefore = $value
+								?>
+							</div>
 
 							<!--Hidden Invoice by default, shown when user click on the paragraph above-->
 							<div id="invoiceShow" desc="displayInvoice" style="display: none">
-								<p><a id="hide" type="button" class="btn btn-outline-dark text-center">Hide</a>
-								<!-- Allow user to print the recipt -->
-								<a class="btn btn-outline-dark text-center" onclick="window.print()">Print This</a></p>
+								<p><a id="hide" type="button" class="btn text-center buttonOutline">Hide</a>
+									<!-- Allow user to print the recipt -->
+									<a class="btn buttonOutline text-center" onclick="window.print()">Print This</a></p>
 								<!--Display customer's details-->
 								<?php
 								$query = 'Select * from checkout Where id=' . $value;
@@ -83,9 +83,9 @@ $total =0;
 								?>
 									<table class="tableTransaction">
 										<tr>
-											<th><strong>Name </strong></th>
-											<th><strong>Email </strong></th>
-											<th><strong>Phone Number </strong></th>
+											<th>Name </th>
+											<th>Email </th>
+											<th>Phone Number</th>
 										</tr>
 										<tr>
 											<td><?php echo $row['username'] ?></td>
@@ -105,13 +105,12 @@ $total =0;
 								?>
 									<table class="tableTransaction">
 										<tr>
-											<th><strong>Date of Event </strong></th>
-											<th><strong>Serving Time </strong></th>
-											<th><strong>Address </strong></th>
-											<th><strong>City </strong></th>
-											<th><strong>State </strong></th>
-											<th><strong>Zip </strong></th>
-
+											<th>Date of Event</th>
+											<th>Serving Time</th>
+											<th>Address</th>
+											<th>City</th>
+											<th>State</th>
+											<th>Zip</th>
 										</tr>
 										<tr>
 											<td><?php echo $row['date'] ?></td>
@@ -129,12 +128,13 @@ $total =0;
 								<!--Display booked menu's details-->
 								<table class="tableTransaction">
 									<tr>
-										<th><strong>Name </strong></th>
-										<th><strong>Price per item </strong></th>
-										<th><strong>No of Pax</strong></th>
-										<th><strong>Total Price per Menu</strong></th>
+										<th>Name </th>
+										<th>Price per item </th>
+										<th>No of Pax </th>
+										<th>Total Price per Menu</th>
 
 									</tr>
+
 									<?php
 									$query = 'Select * from transaction Where checkout_id=' . $value;
 									$results = mysqli_query($mysqli, $query);
@@ -142,9 +142,9 @@ $total =0;
 									?>
 										<tr>
 											<td><?php echo $row['name'] ?></td>
-											<td><?php echo $row['price'] ?></td>
+											<td>RM<?php echo $row['price'] ?></td>
 											<td><?php echo $row['quantity'] ?></td>
-											<td><?php echo $row['totalPrice'] ?></td>
+											<td>RM<?php echo $row['totalPrice'] ?></td>
 										</tr>
 								</table>
 							<?php
@@ -152,15 +152,17 @@ $total =0;
 									}
 							?>
 
-							<p><strong> Total : RM
+							<p id="DisplayTotal"><strong> Total : RM
 									<?php
 									echo $total;
 									?> </strong></p>
 							</div>
 
-						<?php
+							<hr />
+					<?php
+						}
 					}
-						?>
+					?>
 
 				</p>
 			</div>
