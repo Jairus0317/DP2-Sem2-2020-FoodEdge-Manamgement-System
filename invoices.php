@@ -14,9 +14,6 @@ $total = 0;
 	<!--FontAwesome CDN-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="style/style.css">
-	<!--JQuery-->
-	<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script language="JavaScript" type="text/javascript" src="script/jQuery.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -26,10 +23,6 @@ $total = 0;
 
 <body>
 	<?php require_once("component/topnav.php"); ?>
-
-	<div class="container-fluid my-container BuffetMenuPage">
-
-	</div>
 
 	<div class="container-fluid my-container">
 		<div class="row">
@@ -45,7 +38,7 @@ $total = 0;
 
 			<div class="col-10">
 				<h1>Invoices</h1>
-				<p id="receiptNo">
+				<div id="invoicePage">
 
 					<?php
 					$query = "select * from transaction T";
@@ -61,20 +54,14 @@ $total = 0;
 					?>
 							<div id="ReceiptP">
 								<?php
-								echo '<em> Receipt No : ' . $value . '<br> </em>';
+								echo '<em> Invoice No : ' . $value . ' </em>';
 								?>
-								<p><a id="show" type="button" class="btn text-center buttonOutline">Show</a></p>
 								<?php
-
 								$valueBefore = $value
 								?>
 							</div>
 
-							<!--Hidden Invoice by default, shown when user click on the paragraph above-->
-							<div id="invoiceShow" desc="displayInvoice" style="display: none">
-								<p><a id="hide" type="button" class="btn text-center buttonOutline">Hide</a>
-									<!-- Allow user to print the recipt -->
-									<a class="btn buttonOutline text-center" onclick="window.print()">Print This</a></p>
+							<div id="invoiceShow" desc="displayInvoice">
 								<!--Display customer's details-->
 								<?php
 								$query = 'Select * from checkout Where id=' . $value;
@@ -127,63 +114,64 @@ $total = 0;
 
 								<!--Display booked menu's details-->
 								<table class="tableTransaction">
-									<tr>
-										<th>Name </th>
-										<th>Price per item </th>
-										<th>No of Pax </th>
-										<th>Total Price per Menu</th>
-
-									</tr>
-
-									<?php
-									$query = 'Select * from transaction Where checkout_id=' . $value;
-									$results = mysqli_query($mysqli, $query);
-									while ($row = mysqli_fetch_assoc($results)) {
-									?>
+								<?php
+								$query = 'Select * from transaction Where checkout_id=' . $value;
+								$results = mysqli_query($mysqli, $query);
+								while ($row = mysqli_fetch_assoc($results)) {
+								?>
+									<table class="tableTransaction">
+										<tr>
+											<th>Name </th>
+											<th>Price per item </th>
+											<th>No of Pax </th>
+											<th>Total Price per Menu</th>
+										</tr>
 										<tr>
 											<td><?php echo $row['name'] ?></td>
 											<td>RM<?php echo $row['price'] ?></td>
 											<td><?php echo $row['quantity'] ?></td>
 											<td>RM<?php echo $row['totalPrice'] ?></td>
 										</tr>
-								</table>
-							<?php
-										$total = $total + ($row["quantity"] * $row["price"]);
-									}
-							?>
+									</table>
+								<?php
+									$total = $total + ($row["quantity"] * $row["price"]);
+								}
+								?>
 
-							<p id="DisplayTotal"><strong> Total : RM
-									<?php
-									echo $total;
-									?> </strong></p>
+								<p id="DisplayTotal"><strong> Total : RM
+										<?php
+										echo $total;
+										?> </strong> <a class="btn buttonOutline text-center" onClick="print_this('invoiceShow')">Print This</a></p>
 							</div>
-
-							<hr />
 					<?php
 						}
 					}
 					?>
 
-				</p>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<?php require_once("component/footer.php"); ?>
+
+
 </body>
 
 <script>
-	$("#show").on("click", function() {
-		$("#invoiceShow").show();
-		$("hide").show();
-		$("#show").hide();
-	})
-
-	$("#hide").on("click", function() {
-		$("#invoiceShow").hide();
-		$("#show").show();
-		$("#hide").hide();
-	})
+	window.print_this = function(id) {
+		var prtContent = document.getElementById(id);
+		var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+		WinPrint.document.write('<link rel="stylesheet" type="text/css" href="style/style.css">');
+		WinPrint.document.write(prtContent.innerHTML);
+		WinPrint.document.close();
+		WinPrint.setTimeout(function() {
+			WinPrint.focus();
+			WinPrint.print();
+			WinPrint.close();
+		}, 1000);
+	}
 </script>
+
 
 </html>
