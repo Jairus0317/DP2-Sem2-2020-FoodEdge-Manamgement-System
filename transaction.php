@@ -78,7 +78,7 @@ $total = 0;
 
                 <div class="receiptMenuList">
                     <hr />
-                    <h4> Eveny's Detail </h4>
+                    <h4> Event's Detail </h4>
                     <?php
                     $query = 'Select * from checkout Where id=' . $checkoutid['checkout_id'];
                     $results = mysqli_query($mysqli, $query);

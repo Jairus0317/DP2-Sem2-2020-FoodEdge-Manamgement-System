@@ -4,10 +4,20 @@ session_id('checkout');
 
 $discount = '0';
 
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION["username"])) {
+    $username = ($_SESSION["username"]);
     $discount = '20';
+
+    $sql = "SELECT * FROM users WHERE username ='$username'";
+    $result = mysqli_query($mysqli, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $row['username'] = $user;
+        $row['email'] = $email;
+    }
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +26,7 @@ if (isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/style.css">
     <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="jQuery.js"></script>
+    <script language="JavaScript" type="text/javascript" src="script/jQuery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -36,17 +46,17 @@ if (isset($_SESSION['user'])) {
                 <!-- Personal Information Form -->
                 <div class="form-row container col-lg-10">
                     <p class="type">Personal information</p>
-                    <div class="form-group">
+                    <div class="form-group col-sm-10">
                         <label for="inputUsertName">Username</label>
-                        <input type="text" name="username" class="form-control" id="inputUsertName" value="<?php echo $username; ?>">
+                        <input type="text" name="username" class="form-control" id="inputUsertName" value="<?php echo $user; ?>">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-10">
                         <label for="inputEmail">Email</label>
                         <input type="text" name="email" class="form-control" id="inputEmail" value="<?php echo $email; ?>">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-10">
                         <label for="inputPhoneNumber">Phone Number</label>
-                        <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" value="<?php echo $phoneNumber; ?>">
+                        <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" />
                     </div>
                 </div>
 
@@ -54,31 +64,31 @@ if (isset($_SESSION['user'])) {
                 <div class="container col-lg-10">
                     <p class="type">Event Details</p>
                     <div class="form-row ">
-                        <div class="form-group ">
+                        <div class="form-group col-sm-10">
                             <label for="dateBooking"> Date of Event:</label>
-                            ` <input type="date" name="eventDate" id="dateBooking" class="form-control">
+                            <input type="date" name="eventDate" id="dateBooking" class="form-control">
                         </div>
-                        <div class=" form-group ">
+                        <div class=" form-group col-sm-10">
                             <div class="md-form md-outline">
                                 <label for="servingTime">Serving Time</label>
                                 <input type="time" name="eventTime" id="servingTime" class="form-control" placeholder="Select time">
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group  col-sm-10">
                         <label for="inputAddress">Address</label>
                         <input type="text" name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group  col-sm-10">
                         <label for="inputAddress2">Address 2</label>
                         <input type="text" name="address2" class="form-control" id="inputAddress2" placeholder="Building. e.g. Town Hall of Kuching">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
+                    <div class="form-row ">
+                        <div class="form-group  col-sm-10">
                             <label for="inputCity">City</label>
                             <input type="text" name="city" class="form-control" id="inputCity">
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group  col-sm-10">
                             <label for="inputState">State</label>
                             <select id="inputState" name="state" class="form-control">
                                 <option selected value="Johor">Johor</option>
@@ -99,7 +109,7 @@ if (isset($_SESSION['user'])) {
                                 <option value="Putrajaya">Putrajaya</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group  col-sm-10">
                             <label for="inputZip">Zip</label>
                             <input type="text" name="zip" class="form-control" id="inputZip">
                         </div>
@@ -200,5 +210,11 @@ if (isset($_SESSION['user'])) {
         </aside>
     </div>
 </body>
+
+
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("eventDate")[0].setAttribute('min', today);
+</script>
 
 </html>
