@@ -1,6 +1,6 @@
 <?php
 	//Database configuration
-	include "Config.php";
+	include "component/Config.php";
 
 	//Start session
 	session_start();
@@ -60,7 +60,6 @@
 			  }  
 		 }  
 	}  
-
 ?>
 
 
@@ -79,16 +78,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
 	<title>Buffet Menu</title>
 </head>
 
 <body>
 	
-	<div class = "container-fluid my-container BuffetMenuPage">
+	<?php require_once ("component/topnav.php"); ?>
 
-		<div class="row my-row FeatureBanner justify-content-center" >
-			<h1>Catering Menu</h1>
-		</div>
+	<div class = "container-fluid my-container BuffetMenuPage">
 
 		<div class="row my-row justify-content-center" >
 			<ul class="menuPageNavi">
@@ -128,7 +126,7 @@
 					while($row = $result->fetch_assoc()) {
 			?>
 							<div class="card shadow">
-								<img class="card-img-top" src="images/<?php echo $row['Image'] ?>" alt="Card image cap">
+								<img class="card-img-top" src="images/Menu/<?php echo $row['Image']?>" alt="Card image cap">
 								<div class="card-body">
 									<h5 class="card-title"><?php echo $row['Name']?></h5>
 									<p class="card-text">RM <?php echo number_format($row['Price'],2) ?>/pax</p>
@@ -149,7 +147,7 @@
 													<div class="container">
 														<div class="row">
 															<div class="col-md-6 modalMenu my-col">
-																<img src="images/<?php echo $row['Image']?>">
+																<img src="images/Menu/<?php echo $row['Image']?>">
 															</div>
 
 															<div class="col-md-6 my-col">
@@ -169,30 +167,13 @@
 																<input type="hidden" name="HiddenName" value="<?php echo $row["Category"]; echo " - "; echo $row["Name"]; ?>"> 
 																<input type="hidden" name="HiddenPrice" value="<?php echo $row["Price"]; ?>">
 
-																<div class ="row justify-content-end">
-																	<div class ="col col-md-6 px-0">
+																<div class ="row">
+																	<div class ="col-9 d-flex align-items-center justify-content-end">
 																		<span>Number of pax:</span>
-																		<button type="button" class="btn bg-light border rounded-circle" data-quantity="minus" data-field="quantity"><i class="fa fa-minus"></i></button>
-																		<input type="number" name="Quantity" class="form-control input-group-field d-inline" value="1">
-																		<button type="button" class="btn bg-light border rounded-circle" data-quantity="plus" data-field="quantity"><i class="fa fa-plus"></i></button>
-
-																		<script>
-																			let ButtonPlus = document.querySelector('button[data-quantity=plus]');
-																			let ButtonMinus = document.querySelector('button[data-quantity=minus]');
-																			let QuantityInput = document.querySelector('input[name=Quantity]');
-
-																			ButtonPlus.addEventListener('click', () => {
-																				QuantityInput.value = parseInt(QuantityInput.value) + 1;
-																			});
-
-																			
-																			ButtonMinus.addEventListener('click', () => {
-																				QuantityInput.value = parseInt(QuantityInput.value) - 1;
-																			});
-																		</script>
-
+																		<input type="number" name="Quantity" value="1" min="1">
+																		
 																	</div>
-																	<div class ="col col-md-4 px-0">
+																	<div class ="col-3 d-flex align-items-center justify-content-end">
 																		<button type="submit" name="AddToCart" class="btn"> Add To Cart <i class="fa fa-shopping-cart"></i></button>
 																		<input type='hidden' name='ItemID' value='<?php echo $row['ID']?>'>
 																	</div>
@@ -217,14 +198,33 @@
 
 		</div>
 
-		<?php
-			include "ShoppingCart.php";
-		?>
-
 	</div>
 
+	<?php require_once ("component/footer.php"); ?>
+
+</body>
+
+<!-- Number of pax Plus Minus button script from https://www.jqueryscript.net/form/Number-Input-Spinner-jQuery-Nice-Number.html --> 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="script/jquery.nice-number.js"></script>
+<script>
+	$(function(){
+
+	$('input[type="number"]').niceNumber();
+
+	});
+
+	$('input[type="number"]').niceNumber({
+
+// auto resize the number input
+autoSize: false,
+
+// 'around', 'left', or 'right'
+
+});
+
+</script>
 
 	
-</body>
 
 </html>
