@@ -130,6 +130,12 @@ function validatecheckout($userName, $email, $phoneNumber, $eventDate, $eventTim
     if (empty($eventDate)) {
         array_push($errors, "Please enter appropriate date!");
     }
+<<<<<<< Updated upstream
+=======
+    if (false === strtotime($eventDate)) {
+        array_push($errors, "Please enter appropriate date!");
+    }
+>>>>>>> Stashed changes
     if (empty($eventTime)) {
         array_push($errors, "Please enter appropriate time!");
     }
@@ -182,8 +188,13 @@ if (isset($_POST['proceed'])) {
             //if there is no error, push data into database
             if (count($errors) == 0) {
                 $exp = $expMonth . '/' . $expYear;
+<<<<<<< Updated upstream
                 $query = "insert into 'checkout' (username,email,phoneNumber,date, time, address, city, state, zip, cardName,cardNumber,exp,cvc) 
             values('$username','$email', '$phoneNumber', '$eventDate','$eventTime','$address', $city', '$state', '$zip','$cardName','$cardNumber''$exp','$cvc')";
+=======
+                $query = "insert into checkout (username,email,phoneNumber,date, time, address, city, state, zip, cardName,cardNumber,exp,cvc) 
+            values('$username','$email', '$phoneNumber', '$eventDate','$eventTime','$address', '$city', '$state', '$zip','$cardName','$cardNumber','$exp','$cvc')";
+>>>>>>> Stashed changes
                 $results = mysqli_query($mysqli, $query);
                 $id = mysqli_insert_id($mysqli); //insert data into checkout table indatabase
 
@@ -195,8 +206,14 @@ if (isset($_POST['proceed'])) {
                         $quantity = $values['ItemQuantity'];
                         $price = $values['ItemPrice'];
                         $totalPrice = ($values["ItemQuantity"] * $values["ItemPrice"]);
+<<<<<<< Updated upstream
                         mysqli_query($mysqli, "insert into transaction(ItemID,name,price, quantity, totalPrice,checkout_id)
                     values('$mid','$name','$price', '$quantity', '$totalPrice','$id')"); //insert data into transaction table indatabase
+=======
+                        $status = "Processing";
+                        mysqli_query($mysqli, "insert into transaction(ItemID,name,price, quantity, Status,totalPrice,checkout_id)
+                    values('$mid','$name','$price', '$quantity', '$status','$totalPrice','$id')"); //insert data into transaction table indatabase
+>>>>>>> Stashed changes
 
                         //deduct the food stock in database
                         $row =  mysqli_fetch_assoc(mysqli_query($db, "select * from food_stock"));
@@ -229,9 +246,16 @@ if (isset($_POST['proceed'])) {
                         $quantity = $values['ItemQuantity'];
                         $price = $values['ItemPrice'];
                         $totalPrice = ($values["ItemQuantity"] * $values["ItemPrice"]);
+<<<<<<< Updated upstream
                         mysqli_query($mysqli, "insert into transaction(ItemID,name,price, quantity, totalPrice,checkout_id)
                         values('$mid','$name','$price', '$quantity', '$totalPrice','$id')"); //insert data into transaction table indatabase
 
+=======
+                        $status = "Processing";
+                        $r= mysqli_query($mysqli, "insert into transaction(ItemID,name,price, quantity, Status, totalPrice,checkout_id)
+                        values('$mid','$name','$price', '$quantity', '$status','$totalPrice','$id')"); //insert data into transaction table indatabase
+                        echo $r;
+>>>>>>> Stashed changes
                         //deduct the food stock in database
                         $row =  mysqli_fetch_assoc(mysqli_query($db, "select * from food_stock"));
                         $qty = $row['Quantity'];

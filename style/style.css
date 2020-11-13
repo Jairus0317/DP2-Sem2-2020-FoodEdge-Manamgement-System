@@ -8,6 +8,122 @@
 	html{
 		height:100%;
 	}
+<<<<<<< Updated upstream
+=======
+
+	  
+	.ActiveLink
+	{
+		color:#ff9900 !important;
+	}
+
+	input:focus,
+	textarea:focus{
+		border-color: #ff9900 !important;
+		box-shadow: 0 0 5px #ff9900 !important;
+	}
+
+
+	/*------------------------------------ Header (Top Navbar) ------------------------------------*/
+	.navbar{
+		background-color: #252525;
+	}
+
+	.navbar-brand{
+		padding:3px 0 0 0;
+	}
+
+	.nav-item{
+		margin:0 0.5rem;
+	}
+	.nav-link{
+		color:white !important;
+	}
+
+	.nav-link:hover{
+		color:#ff9900 !important;
+	}
+
+	.navbar .btn{
+		padding:.375rem 1.5rem;
+		font-size: 18px;
+		
+	}
+	.navbar .btn-primary{
+		background-color: #ff9900;
+		border:none;
+	}
+
+	.navbar .fa-shopping-cart{
+		font-size: 24px;
+	}
+
+	.navbar a{
+		color:white !important;
+	}
+
+	.navbar button{
+		color:white;
+		padding: 0;
+		margin:0 40px 0 0;
+		background-color: transparent;
+		border: none;
+		font-size: 18px;
+		vertical-align: middle;	
+	}
+
+	.navbar span{
+		background-color: #ff9900;
+		border-radius:0.2vw;
+		font-size: 18px;
+	}
+
+	/*------------------------------------ Footer ------------------------------------*/
+	footer{
+		background-color: #252525;
+		color:grey;
+		text-align: center;
+		padding:60px 0 30px 0;
+	}
+	footer a{
+		text-decoration: none;
+		color:#ff9900;
+	}
+
+	footer a:hover{
+		color:#ff9900;
+	}
+
+=
+	footer .sitemap{
+		list-style: none;
+		padding: 0;
+	}
+
+	footer .sitemap li{
+		display: inline-block;
+		margin:20px 40px 0 40px;
+	}
+
+	footer .language{
+		list-style: none;
+	}
+	
+	footer .language p{
+		padding: 0;
+		margin-bottom:5px;
+		
+	}
+
+	footer .language li{
+		margin:10px 0;
+	}
+
+	footer p:nth-child(2){
+		margin-top: 50px;
+	}
+
+>>>>>>> Stashed changes
 	/*------------------------------------ Home Page ------------------------------------*/
 
 
@@ -45,6 +161,7 @@
 		width:100%;
 	}
 
+<<<<<<< Updated upstream
 	/* footer */
 	.footer {
 		color:white;
@@ -78,6 +195,8 @@
 	.footer p{
 		text-align: center;
 	}
+=======
+>>>>>>> Stashed changes
 
 	/* back to top button */
 	.arrow{
@@ -92,6 +211,7 @@
 	}
 
 
+<<<<<<< Updated upstream
 	/* Buffet catering overlay */
 	.overlay1,
 	.overlay2,
@@ -124,6 +244,43 @@
 	transform: translate(-50%, -50%);
 	}
 
+=======
+	/* overlay */
+	.homepage .desc .overlay{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		transition: .3s ease;
+		background-color: rgba(0,0, 0, 0.7);
+		cursor: pointer;
+		box-shadow: 0 0 20px #ff9900 inset;
+
+	}
+
+	.homepage .desc .col-4:hover .overlay {
+		opacity: 1;
+	}
+
+	.homepage .desc .overlay span{
+		color: #ff9900;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		text-align: center;
+		text-decoration: none;
+		font-size:30px;
+		font-style: italic;
+		width:100%;
+		padding:15px 0;
+	}
+>>>>>>> Stashed changes
 
 	.desc img{
 		width:100%;
@@ -150,15 +307,28 @@
 		font-size: 18px;
 	}
 
+<<<<<<< Updated upstream
+=======
+	.homepageVisitorCount,
+    #error_0024e2da46566f00b1b224122914c411d3225afe{
+          display: none;
+          white-space: nowrap;
+    }
+
+>>>>>>> Stashed changes
 
 
 	/*------------------------------------  Login Page ------------------------------------*/
 	.loginpage{
 		height:100%;
+<<<<<<< Updated upstream
 		background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url("../images/BackgroundImage.jpg");
 		background-size: cover;	
 		background-repeat: no-repeat;
 		justify-content: center;
+=======
+
+>>>>>>> Stashed changes
 	}
 
 	.loginpage .container{
@@ -302,18 +472,70 @@
 		}
         
         .ServicesCard{  
+<<<<<<< Updated upstream
             margin: 40px 20px 0 20px;
+=======
+            margin: 10px 20px 40px 20px;
+>>>>>>> Stashed changes
         }
 
         .ServicesCard img{
             width:100%;
 			object-fit:cover;
+<<<<<<< Updated upstream
 			height:300px;
 			overflow:hidden;
         }
 
 		
 		/*------------------------------------ Menu Page ------------------------------------*/
+=======
+			height:330px;
+			overflow:hidden;
+		}
+		
+		.ServicesCard .overlay{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: .3s ease;
+			background-color: rgba(0,0, 0, 0.7);
+			cursor: pointer;
+			box-shadow: 0 0 20px #ff9900 inset;
+
+		}
+
+		.ServicesCard:hover .overlay {
+			opacity: 1;
+		}
+
+		.ServicesCard .overlay span{
+			color: #ff9900;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			text-align: center;
+			text-decoration: none;
+			font-size:30px;
+			font-style: italic;
+			width:100%;
+			padding:15px 0;
+		}
+
+		
+		/*------------------------------------ Menu Page ------------------------------------*/
+		.BuffetMenuPage{
+			margin-bottom: 100px;
+		}
+		
+>>>>>>> Stashed changes
 		.menuPageNavi{
 			list-style:none;
 			display:flex;
@@ -332,11 +554,14 @@
 			transition:0.2s;
 		}
 
+<<<<<<< Updated upstream
 		.menuPageNavi .ActiveLink
 		{
 			color:#ff9900;
 		}
 
+=======
+>>>>>>> Stashed changes
 		.menuPageNavi a:active
 		{
 			color:red;
@@ -380,6 +605,7 @@
 		}
 
 		/*Menu Detail*/
+<<<<<<< Updated upstream
 		.modalMenu{
 			height:400px;
             overflow:hidden;
@@ -387,11 +613,32 @@
 		}
 
 		.modalMenu > img{
+=======
+		.BuffetMenuPage .modal-header{
+			display: block;
+		}
+
+		.BuffetMenuPage .modal-header .modal-title{
+			display: inline;
+		}
+
+		.BuffetMenuPage .modal-header .close{
+			display: inline;
+		}
+
+		.BuffetMenuPage .modalMenu{
+			height:400px;
+            overflow:hidden;
+		}
+
+		.BuffetMenuPage .modalMenu > img{
+>>>>>>> Stashed changes
             width:100%;
             height:400px;
             object-fit:cover;
 		}
 
+<<<<<<< Updated upstream
 		/*Shopping Cart*/
 		.ShoppingCartIcon input{
 			position:fixed;
@@ -429,6 +676,36 @@
 		}
 
 
+=======
+		.BuffetMenuPage .modal-footer{
+			display: block;
+		}
+
+
+		.BuffetMenuPage .modal-footer .nice-number button{
+			color: #ff9900;
+			border: none;
+			margin: 10px;
+			font-size: 24px;
+			border-radius: 0.3vw;
+			padding:0 10px;
+			font-weight: 900;
+		}
+
+		.BuffetMenuPage .modal-footer input[type="number"]{
+			text-align: center;
+			width:50px;
+			padding:4px 0;
+			transform: translateY(-4px);
+		}
+
+		.BuffetMenuPage .modal-footer input::-webkit-outer-spin-button,
+		.BuffetMenuPage .modal-footer input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+
+		/*Shopping Cart*/
+>>>>>>> Stashed changes
 		#ShoppingCartModal .modal-footer a{
 			display: inline-block;;
 			text-align: center;
@@ -449,16 +726,27 @@
 
 
 		/*------------------------------------ Payment Page ------------------------------------*/
+<<<<<<< Updated upstream
 		.paymentTransaction{
 			padding: 100px;
 			background-color: #252525;
 		}
 		
 		#buttonDiv{
+=======
+
+		.paymentTransaction .banner{
+			background-color: #252525;
+			padding:40px 0;
+		}
+		
+		.paymentTransaction #buttonDiv {
+>>>>>>> Stashed changes
 			text-align: end;
 			margin-top: 30px;
 			margin-right: 15px;
 		}
+<<<<<<< Updated upstream
 
 		.paymentTitle{
 			text-align: center;
@@ -483,10 +771,33 @@
 		}
 		
 		.paymentArea{
+=======
+		
+		.paymentTransaction .paymentTitle {
+			text-align: center;
+		}
+		
+		.paymentTransaction #paymentPageP {
+			text-align: center;
+		}
+		
+		.paymentTransaction .type {
+			font-size:18px;
+			font-weight: bold;
+			padding-top: 5%;
+		}
+		
+		.paymentTransaction input[type="radio"] {
+			margin-right: 10px;
+		}
+		
+		.paymentTransaction .paymentArea {
+>>>>>>> Stashed changes
 			padding-top: 10%;
 			width: 90%;
 			padding-top: 10px;
 			padding-bottom: 10px;
+<<<<<<< Updated upstream
 			margin: auto;
 			background-color: white;
 			border-radius: 10px;
@@ -498,12 +809,29 @@
 		
 		#paymentSummary{
 			background-color: #E8E8E8;
+=======
+			margin:auto;
+			border-radius: 10px;
+
+		}
+		
+		.paymentTransaction #payment {
+			border-radius: 10px;
+			padding: 10px;
+			box-shadow: 0 0 3rem rgba(0,0,0,.15);
+			border:1px solid #dee2e6;
+			margin:50px 0;
+		}
+		
+		.paymentTransaction #paymentSummary {
+>>>>>>> Stashed changes
 			padding-left: 30px;
 			padding-right: 30px;
 			padding-top: 3px;
 			padding-bottom: 10px;
 			border-radius: 10px;
 			margin-top: 2.5%;
+<<<<<<< Updated upstream
 		
 		}
 		
@@ -511,6 +839,16 @@
 			color:#ff9900 ;
 			font-size: large;
 			font-style: italic;
+=======
+			margin:40px 0;
+			box-shadow: 0 0 3rem rgba(0,0,0,.15);
+			border:1px solid #dee2e6;
+
+		}
+		
+		.paymentTransaction #orderSum {
+			font-weight: bold;
+>>>>>>> Stashed changes
 			text-align: center;
 			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 			background-color: #ffffff;
@@ -518,17 +856,36 @@
 			padding: 5px;
 		}
 		
+<<<<<<< Updated upstream
 		button[type="submit"], button[type="reset"]{
 			margin: 5px;
 			float: left;
 		}
 		
 		.cardType{
+=======
+		.paymentTransaction button[type="submit"], 
+		.paymentTransaction button[type="reset"] {
+			margin: 5px;
+			float: left;
+			background-color: #ff9900;
+			border:none;
+		}
+
+		.paymentTransaction button[type="submit"]:hover, 
+		.paymentTransaction button[type="reset"]:hover {
+			background-color: #ff9900;
+			border:none;
+		}
+		
+		.paymentTransaction .cardType {
+>>>>>>> Stashed changes
 			width: 50px;
 			height: 35px;
 			padding: 5px;
 		}
 		
+<<<<<<< Updated upstream
 		#transctionBody{
 			background-color: #252525;
 			background-blend-mode:screen;
@@ -536,11 +893,60 @@
 		
 		#receipt{
 			background-color: white;
+=======
+		/*------------------------------------ Transaction Page ------------------------------------*/
+		.transctionBody .banner{
+			background-color: #252525;
+			padding:40px 0;
+		}
+
+		.tableTransaction {
+			margin: 2%;
+		}
+		
+		.tableTransaction th {
+			border: 0.25px solid #555d50;
+			padding: 5px;
+			color: #ff9900;
+			text-align: center;
+			background-color: #252525;
+		}
+		
+		#DisplayTotal {
+			color: #ff9900;
+			font-size: 20px;
+			border-bottom: 1px solid black;
+			text-align: end;
+		}
+		
+		div #ReceiptP {
+			position: relative;
+		}
+		
+		.tableTransaction td, .tableTransaction tr {
+			border: 0.25px solid #555d50;
+			padding: 5px;
+		}
+		
+		.buttonOutline {
+			border-width: 1px;
+			border-color: #ff9900;
+			background-color: #ff9900;
+			color: white;
+		}
+		
+		#transctionBody {
+			background-blend-mode: screen;
+		}
+		
+		#receipt {
+>>>>>>> Stashed changes
 			padding: 50px;
 			border-radius: 10px;
 			margin: auto;
 			width: 80%;
 			margin-top: 5%;
+<<<<<<< Updated upstream
 		}
 		
 
@@ -549,10 +955,20 @@
 			font-size: x-large;
 			text-align: center;
 			color: #ff9900;
+=======
+			box-shadow: 0 0 3rem rgba(0,0,0,.15);
+			border:1px solid #dee2e6;
+		}
+		
+		#totalPriceSum {
+			font-size: x-large;
+			text-align: center;
+>>>>>>> Stashed changes
 			background-color: #ffffff;
 			border-radius: 10px;
 		}
 		
+<<<<<<< Updated upstream
 		#receipt h1, #receipt h4{
 			color: #ff9900;
 		}
@@ -579,6 +995,25 @@
 	background-repeat: repeat, no-repeat;
 	z-index: -1;
   }
+=======
+		#receipt h1, #receipt h4 {
+			color: #ff9900;
+		}
+		
+		#receipt h2, #receipt h4 {
+			font-size: medium;
+		}
+		
+		#receiptNo, .receiptMenuList {
+			text-align: center;
+		}
+		
+		#invoicePage {text-align: left;}
+		
+		
+
+		/*------------------------------------ Feedback Page ------------------------------------*/
+>>>>>>> Stashed changes
   
   .feedbackpage .table{
 	margin-bottom: 0;
@@ -588,14 +1023,18 @@
 	background-image: url("../images/BG2.jpg");
   }
   
+<<<<<<< Updated upstream
   .feedbackpage h1 {
 	letter-spacing: 5px;
   }
   
+=======
+>>>>>>> Stashed changes
   .feedbackpage #result12{
 	background-color: rgba(255, 255, 255, 0.432);
 	background-clip: content-box;
   }
+<<<<<<< Updated upstream
   
   
   
@@ -608,6 +1047,9 @@
   .feedbackpage .card {
 	background-color: rgba(37, 37, 37, 0.644);
   }
+=======
+
+>>>>>>> Stashed changes
   
   /* 5 star rating start */
   .feedbackpage .rating {
@@ -624,7 +1066,11 @@
 	position: relative;
 	width: 1em;
 	font-size: 40px;
+<<<<<<< Updated upstream
 	color: #ffd500;
+=======
+	color: #ff9900;
+>>>>>>> Stashed changes
 	cursor: pointer
   }
   
@@ -648,6 +1094,7 @@
   }
   /* 5 star rating end */
   
+<<<<<<< Updated upstream
   .feedbackpage #t1{
 	color: beige;
   }
@@ -668,3 +1115,128 @@
   
   
 </style>
+=======
+   .feedbackpage #SubB{
+	color: rgb(255, 255, 255);
+	background-color: #ff9900;
+	border:none;
+   }
+
+   	/*------------------------------------ Management Team Page ------------------------------------*/
+
+	.userSideBar{
+		background-color: #252525;
+	}
+
+	.userSideBar ul{
+		list-style: none;
+		padding: 0;
+	}
+	.userSideBar ul li{
+		box-shadow:inset 0 -15px 5px -16px grey;
+	}
+  
+
+	.userSideBar ul li a{
+		color:white;
+		display: block;
+		padding: 20px 0 20px 10px;
+
+	}
+
+	.userSideBar ul li a:hover{
+		color:orange;
+		text-decoration: none;
+	}
+
+	#besucherzaehler2{
+		width:auto;
+		height:150px;
+
+	}
+	
+	#besucherzaehler2 text{
+		font-size: 20px;
+
+	}
+
+	#besucherzaehler2 text:nth-child(2){
+
+		transform: translateY(20px);
+	}
+
+	
+	#besucherzaehler2 text:nth-child(3){
+
+		transform: translateY(30px);
+	}
+
+	#besucherzaehler2 text:nth-child(4){
+
+		transform: translateY(40px);
+	}
+
+
+	#chartContainer{
+		height: 500px; 
+		width: 1000px;
+		margin:0 auto;
+	}
+
+	.analytics {
+		text-align: center;
+		margin:100px 0 200px 0;
+	}
+
+	.analytics h2,
+	.analytics h3{
+		margin-top: 100px;
+	}
+  
+   	/*------------------------------------ Contact Us Page ------------------------------------*/
+
+
+
+	.ContactUsPage .map-container {
+		height: 200px;
+		position: relative;
+	}
+		
+	.ContactUsPage .map-container iframe {
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+	.ContactUsPage button[type="submit"]{
+		background-color: #ff9900;
+		border:none;
+		font-size:18px;
+		padding: 8px 16px;
+	}
+	
+	.ContactUsPage a {
+		color:#ff9900;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 
 <div class="ShoppingCartIcon">
@@ -17,6 +18,24 @@
 	</span>
 </div>
 
+=======
+<?php
+	if(isset($_GET["action"]))  
+	{  
+		 if($_GET["action"] == "delete")  
+		 {  
+			  foreach($_SESSION["ShoppingCart"] as $keys => $values)  
+			  {  
+				   if($values["ItemID"] == $_GET["id"])  
+				   {  
+						unset($_SESSION["ShoppingCart"][$keys]);  
+						echo '<script>window.location="BuffetMenu.php"</script>';  
+				   }  
+			  }  
+		 }  
+	}  
+?>
+>>>>>>> Stashed changes
 
 <!-- The Modal -->
 <div class="modal fade" id="ShoppingCartModal">
@@ -83,7 +102,11 @@
 
 <!-- Modal footer -->
 			<div class="modal-footer">
+<<<<<<< Updated upstream
 				<a href="payment.php"> Check Out </button>
+=======
+				<a href="payment.php"> Check Out </a>
+>>>>>>> Stashed changes
 			</div>
 
 		</div>

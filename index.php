@@ -1,3 +1,15 @@
+<<<<<<< Updated upstream
+=======
+
+<?php 
+session_start();
+
+  if(isset($_POST['username'])){
+    $_SESSION['loginuser'] = $_POST['username'];
+  }
+?>
+
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 <!--Description: Home Page-->
@@ -7,6 +19,7 @@
 <head>
 	<meta charset="UTF-8">
 	<!--Bootstrap CDN-->
+<<<<<<< Updated upstream
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.7.0/css/bootstrap.min.css">
 	<!--FontAwesome CDN-->
@@ -76,11 +89,58 @@
       
         <div class="item">
           <img src="images/Homepage/Slide3.jpg" alt="Slide 3" style="width:100%;">
+=======
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!--FontAwesome CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!--Google Translate-->
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <title>FoodEdge Gourmet</title>
+</head>
+
+<body class="homepage">
+<?php
+  require_once ("component/topnav.php"); 
+?>
+
+
+<div class = "container-fluid my-container BuffetMenuPage">
+<!-- slide show-->
+<div class="row">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+
+       <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/Homepage/Slide1.jpg" alt="Slide 1" width="100%">
+          <!--image from:https://unsplash.com/photos/SiwrpBnxDww-->
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/Homepage/Slide2.jpg" alt="Slide 2" width="100%">
+          <!--image from:https://unsplash.com/photos/IJuze-KdTFk-->
+        </div>
+      
+        <div class="carousel-item">
+          <img src="images/Homepage/Slide3.jpg" alt="Slide 3" width="100%">
+>>>>>>> Stashed changes
           <!--image from:https://pixabay.com/photos/restaurant-table-setting-decoration-2697945/-->
         </div>
       </div>
 
       <!-- Left and right controls -->
+<<<<<<< Updated upstream
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -144,6 +204,59 @@
             <table class="table table-striped">
                 <tr>
                  <h2>Our Promoting Events</h2>
+=======
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+</div>
+    <div class="slogan text-center my-5">
+            <h1>GREAT PEOPLE + GREAT FOOD</h1>
+            <p>We offer a wide range of catering services, from company party, school party to wedding.</p>
+            <p>Browse our sample menus for mouth-watering ideas for your next event.</p>
+    </div>
+
+<div class="row desc">
+			<div class="col-4 p-0">
+				<a href="BuffetMenu.php">
+					<!--image from: https://static.asiawebdirect.com/m/kl/portals/kuala-lumpur-ws/homepage/putrajaya/putrajaya-dining/pagePropertiesImage/putrajaya-dining.jpg.jpg-->
+					<img class="img-fluid" src = "images/CateringServicesPage/Service1_BuffetCatering.jpg">
+				</a>
+				<a class="overlay" href="BuffetMenu.php" title="Buffet Catering">
+					<span>Buffet Catering</span>
+				</a>
+			</div>
+	
+			<div class="col-4 p-0">
+				<a href="ChineseBanquetMenu.php">
+					<!--image from: https://www.thechairmansbao.com/wp-content/uploads/2017/11/Chinese-Wedding-Banquet-Spread.jpg-->
+					<img class="img-fluid" src = "images/CateringServicesPage/Service2_ChineseBanquet.jpg">
+				</a>
+				<a class="overlay" href="ChineseBanquetMenu.php" class="icon" title="Chinese Banquet">
+					<span>Chinese Banquet</span>
+				</a>
+			</div>
+		
+			<div class="col-4 p-0">
+				<a href="HawkerStallMenu.php">
+					<!--image from: https://www.bigonioncaterer.com.my/wp-content/uploads/2020/01/Hawker-Stall-2-1024x683-1.jpg-->
+					<img class="img-fluid" src = "images/CateringServicesPage/Service3_HawkerStallStyle.jpg">
+				</a>
+				<a class="overlay" href="HawkerStall.php" class="icon" title="Hawker Stall Style">
+					<span>Hawker Stall Style</span>
+				</a>
+			</div>
+</div>
+
+<!--table-->
+<div class=" wedding">
+            <table class="table table-striped">
+                <tr>
+                 <h2 class="my-5">Our Promoting Events</h2>
+>>>>>>> Stashed changes
                 </tr>
 
                 <tr>
@@ -174,6 +287,7 @@
 
             </table>
 </div>
+<<<<<<< Updated upstream
 
 <!-- Footer -->
 <div class="row">
@@ -240,4 +354,16 @@
 	});
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+=======
+</div>
+<!-- Footer -->
+<?php require_once ("component/footer.php"); ?>
+
+<div class="homepageVisitorCount">
+  <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0024e2da46566f00b1b224122914c411d3225afe'></script>
+  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/762621/t/4"></script>
+</div>
+
+</body>
+>>>>>>> Stashed changes
 </html>

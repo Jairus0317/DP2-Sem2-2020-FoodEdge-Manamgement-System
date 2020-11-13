@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
 include('methods.php');
 session_id('checkout');
 
@@ -9,6 +10,26 @@ if (isset($_SESSION['user'])) {
 }
 ?>
 
+=======
+include('component/methods.php');
+
+$discount = '0';
+
+if (isset($_SESSION["username"])) {
+    $username = ($_SESSION["username"]);
+    $discount = '20';
+
+    $sql = "SELECT * FROM users WHERE username ='$username'";
+    $result = mysqli_query($mysqli, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $row['email'] = $email;
+    }
+}
+
+?>
+
+
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +44,15 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body class="paymentTransaction">
+<<<<<<< Updated upstream
 
+=======
+<div class = "container-fluid my-container">
+    <div class="row banner text-center">
+      <img src="./images/logo2.png" alt="Logo" width="12%">
+    </div>
+    
+>>>>>>> Stashed changes
     <div class="paymentArea">
         <!-- Payment Form -->
         <div class="col-12 col-md-8 order-2 order-md-1" id="payment">
@@ -37,6 +66,7 @@ if (isset($_SESSION['user'])) {
                 <!-- Personal Information Form -->
                 <div class="form-row container col-lg-10">
                     <p class="type">Personal information</p>
+<<<<<<< Updated upstream
                     <div class="form-group">
                         <label for="inputUsertName">Username</label>
                         <input type="text" name="username" class="form-control" id="inputUsertName" value="<?php echo $username; ?>">
@@ -48,6 +78,19 @@ if (isset($_SESSION['user'])) {
                     <div class="form-group">
                         <label for="inputPhoneNumber">Phone Number</label>
                         <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" value="<?php echo $phoneNumber; ?>">
+=======
+                    <div class="form-group col-sm-10">
+                        <label for="inputUsertName">Username</label>
+                        <input type="text" name="username" class="form-control" id="inputUsertName" value="<?php echo $username; ?>">
+                    </div>
+                    <div class="form-group col-sm-10">
+                        <label for="inputEmail">Email</label>
+                        <input type="text" name="email" class="form-control" id="inputEmail" value="<?php echo $email; ?>">
+                    </div>
+                    <div class="form-group col-sm-10">
+                        <label for="inputPhoneNumber">Phone Number</label>
+                        <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" />
+>>>>>>> Stashed changes
                     </div>
                 </div>
 
@@ -55,17 +98,26 @@ if (isset($_SESSION['user'])) {
                 <div class="container col-lg-10">
                     <p class="type">Event Details</p>
                     <div class="form-row ">
+<<<<<<< Updated upstream
                         <div class="form-group ">
                             <label for="dateBooking"> Date of Event:</label>
                             ` <input type="date" name="eventDate" id="dateBooking" class="form-control">
                         </div>
                         <div class=" form-group ">
+=======
+                        <div class="form-group col-sm-10">
+                            <label for="dateBooking"> Date of Event:</label>
+                            <input type="date" name="eventDate" id="dateBooking" class="form-control">
+                        </div>
+                        <div class=" form-group col-sm-10">
+>>>>>>> Stashed changes
                             <div class="md-form md-outline">
                                 <label for="servingTime">Serving Time</label>
                                 <input type="time" name="eventTime" id="servingTime" class="form-control" placeholder="Select time">
                             </div>
                         </div>
                     </div>
+<<<<<<< Updated upstream
                     <div class="form-group">
                         <label for="inputAddress">Address</label>
                         <input type="text" name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
@@ -80,6 +132,22 @@ if (isset($_SESSION['user'])) {
                             <input type="text" name="city" class="form-control" id="inputCity">
                         </div>
                         <div class="form-group ">
+=======
+                    <div class="form-group  col-sm-10">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" name="address1" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="form-group  col-sm-10">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" name="address2" class="form-control" id="inputAddress2" placeholder="Building. e.g. Town Hall of Kuching">
+                    </div>
+                    <div class="form-row ">
+                        <div class="form-group  col-sm-10">
+                            <label for="inputCity">City</label>
+                            <input type="text" name="city" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-group  col-sm-10">
+>>>>>>> Stashed changes
                             <label for="inputState">State</label>
                             <select id="inputState" name="state" class="form-control">
                                 <option selected value="Johor">Johor</option>
@@ -100,7 +168,11 @@ if (isset($_SESSION['user'])) {
                                 <option value="Putrajaya">Putrajaya</option>
                             </select>
                         </div>
+<<<<<<< Updated upstream
                         <div class="form-group">
+=======
+                        <div class="form-group  col-sm-10">
+>>>>>>> Stashed changes
                             <label for="inputZip">Zip</label>
                             <input type="text" name="zip" class="form-control" id="inputZip">
                         </div>
@@ -200,6 +272,7 @@ if (isset($_SESSION['user'])) {
                     ?> </strong></p>
         </aside>
     </div>
+<<<<<<< Updated upstream
 </body>
 <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -230,4 +303,18 @@ if (isset($_SESSION['user'])) {
 	});
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+=======
+</div>
+
+<?php require_once("component/footer.php"); ?>
+
+</body>
+
+
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("eventDate")[0].setAttribute('min', today);
+</script>
+
+>>>>>>> Stashed changes
 </html>

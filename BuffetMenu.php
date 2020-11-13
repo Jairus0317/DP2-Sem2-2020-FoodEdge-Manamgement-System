@@ -44,6 +44,7 @@
 			$_SESSION["ShoppingCart"][0] = $ItemArray;
 		}
 	}
+<<<<<<< Updated upstream
 
 	if(isset($_GET["action"]))  
 	{  
@@ -61,6 +62,8 @@
 		 }  
 	}  
 
+=======
+>>>>>>> Stashed changes
 ?>
 
 
@@ -72,7 +75,10 @@
 	<meta http-equiv="Cache-control" content="no-cache">
 	<!--Bootstrap CDN-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<<<<<<< Updated upstream
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+=======
+>>>>>>> Stashed changes
 	<!--FontAwesome CDN-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="style/style.css">
@@ -83,6 +89,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
 
 	
 	<div class = "container-fluid my-container BuffetMenuPage">
@@ -90,6 +97,12 @@
 		<div class="row my-row FeatureBanner MenuBanner justify-content-center" >
 			<h1>Catering Menu</h1>
 		</div>
+=======
+	
+	<?php require_once ("component/topnav.php"); ?>
+
+	<div class = "container-fluid my-container BuffetMenuPage">
+>>>>>>> Stashed changes
 
 		<div class="row my-row justify-content-center" >
 			<ul class="menuPageNavi">
@@ -157,7 +170,15 @@
 																<h5><?php echo $row['Name']?></h5>
 																<p>RM <?php echo number_format($row['Price'],2)?>/pax</p>
 																<p>Menu Detail:</p>
+<<<<<<< Updated upstream
 																<p><?php echo $row['Items']?></p>
+=======
+																<ul>
+																	
+																<?php echo $row['Items']?>
+																</ul>
+																<p>Availability:</p>
+>>>>>>> Stashed changes
 															</div>
 														</div>
 													</div>
@@ -169,6 +190,7 @@
 																<input type="hidden" name="HiddenName" value="<?php echo $row["Category"]; echo " - "; echo $row["Name"]; ?>"> 
 																<input type="hidden" name="HiddenPrice" value="<?php echo $row["Price"]; ?>">
 
+<<<<<<< Updated upstream
 																<div class ="row justify-content-end">
 																	<div class ="col col-md-6 px-0">
 																		<span>Number of pax:</span>
@@ -193,6 +215,15 @@
 
 																	</div>
 																	<div class ="col col-md-4 px-0">
+=======
+																<div class ="row">
+																	<div class ="col-9 d-flex align-items-center justify-content-end">
+																		<span>Number of pax:</span>
+																		<input type="number" name="Quantity" value="1" min="1">
+																		
+																	</div>
+																	<div class ="col-3 d-flex align-items-center justify-content-end">
+>>>>>>> Stashed changes
 																		<button type="submit" name="AddToCart" class="btn"> Add To Cart <i class="fa fa-shopping-cart"></i></button>
 																		<input type='hidden' name='ItemID' value='<?php echo $row['ID']?>'>
 																	</div>
@@ -217,6 +248,7 @@
 
 		</div>
 
+<<<<<<< Updated upstream
 		<?php
 			include "component/ShoppingCart.php";
 		?>
@@ -255,5 +287,32 @@
 	});
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+=======
+	</div>
+
+	<?php require_once ("component/footer.php"); ?>
+
+</body>
+
+<!-- Number of pax Plus Minus button script from https://www.jqueryscript.net/form/Number-Input-Spinner-jQuery-Nice-Number.html --> 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="script/jquery.nice-number.js"></script>
+<script>
+	$(function(){
+
+	$('input[type="number"]').niceNumber();
+
+	});
+
+	$('input[type="number"]').niceNumber({
+
+// auto resize the number input
+autoSize: false,
+});
+
+</script>
+
+	
+>>>>>>> Stashed changes
 
 </html>

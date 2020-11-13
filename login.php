@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
 	<!--Description : Login Page-->
@@ -7,6 +12,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="Cache-control" content="no-cache">
 	<script src="script/validation.js"></script>
+<<<<<<< Updated upstream
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style/style.css">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -17,6 +23,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
+=======
+	<!--Bootstrap CDN-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!--FontAwesome CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!--Google Translate-->
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+>>>>>>> Stashed changes
 	<title>Login</title>
 </head>
 
@@ -28,11 +46,19 @@
 					<h3>Sign In</h3>
 				</div>
 				<div class="card-body">
+<<<<<<< Updated upstream
 					<form name="loginform" onsubmit="return validateLogin()"  enctype="text/plain" >
+=======
+					<form method="post" action ="index.php">
+>>>>>>> Stashed changes
 						<div class="input-group form-group">
 							<span class="input-group-text"><i class="fa fa-user"></i></span>
 							<input type="text" name="username" class="form-control" placeholder="username">
 							
+<<<<<<< Updated upstream
+=======
+							
+>>>>>>> Stashed changes
 						</div>
 						<div class="input-group form-group">
 							<span class="input-group-text"><i class="fa fa-lock"></i></span>
@@ -60,6 +86,7 @@
 
 
 </body>
+<<<<<<< Updated upstream
 <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
@@ -92,3 +119,7 @@
 </html>
 
 
+=======
+</html>
+
+>>>>>>> Stashed changes
